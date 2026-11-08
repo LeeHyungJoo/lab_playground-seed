@@ -6,7 +6,7 @@
 
 GitHub Actions가 프로젝트 검색 → 공식 README 확인 → 한국어 AI 요약 → 출력 검증 → `docs/data/posts.json` 커밋을 실행합니다. 사이트는 이 파일을 읽으므로 새 글마다 사이트를 다시 배포할 필요가 없습니다.
 
-**추가 API 키 없이 실행됩니다.** 기본은 Actions CPU에서 `Qwen/Qwen2.5-1.5B-Instruct` 공개 모델을 직접 실행하는 방식입니다. Apache-2.0 모델의 고정 리비전 `989aa7980e4cf806f80c7fef2b1adb7bc71aa306`을 사용하며, 원격 Python 코드 실행은 사용하지 않습니다. 최초 실행은 약 3GB의 가중치를 내려받아 수 분 이상 걸릴 수 있습니다. 이후 모델 캐시를 재사용합니다. 작은 모델 특성상 요약 품질에 한계가 있으므로 원문을 함께 확인하세요.
+**추가 API 키 없이 실행됩니다.** 기본은 Actions CPU에서 `Qwen/Qwen3-1.7B` 공개 모델을 직접 실행하는 방식입니다. Apache-2.0 모델의 고정 리비전 `70d244cc86ccca08cf5af4e1e306ecf908b1ad5e`을 사용하며, 원격 Python 코드 실행은 사용하지 않습니다. 최초 실행은 약 3.5GB의 가중치를 내려받아 수 분 이상 걸릴 수 있습니다. 이후 모델 캐시를 재사용합니다. 작은 모델 특성상 요약 품질에 한계가 있으므로 원문을 함께 확인하세요.
 
 GitHub Models는 2026-07-30 종료되어 사용하지 않습니다. 공식 공지: https://github.blog/changelog/2026-07-30-github-models-is-now-retired/
 

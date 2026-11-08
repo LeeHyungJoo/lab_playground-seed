@@ -45,7 +45,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .cache/huggingface
-          key: qwen2.5-1.5b-989aa7980e4cf806f80c7fef2b1adb7bc71aa306
+          key: qwen3-1.7b-70d244cc86ccca08cf5af4e1e306ecf908b1ad5e
       - name: Install CPU inference dependencies
         if: steps.daily.outputs.exists == 'false' && env.OPENAI_API_KEY == ''
         run: |

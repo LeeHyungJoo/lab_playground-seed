@@ -4,8 +4,8 @@ import os
 import re
 import sys
 
-MODEL = 'Qwen/Qwen2.5-1.5B-Instruct'
-REVISION = '989aa7980e4cf806f80c7fef2b1adb7bc71aa306'
+MODEL = 'Qwen/Qwen3-1.7B'
+REVISION = '70d244cc86ccca08cf5af4e1e306ecf908b1ad5e'
 
 def parse_output(text):
     text = re.sub(r'^```(?:json)?\s*', '', text.strip(), flags=re.I)
@@ -38,10 +38,10 @@ def main():
     data['readme'] = data.get('readme', '')[:5000]
     messages = [
         {'role': 'system', 'content': payload['system']},
-        {'role': 'user', 'content': '다음 자료로 짧은 한국어 소개를 작성하세요. JSON만 출력하세요. 각 문장은 짧게 작성하세요.\n' + json.dumps(data, ensure_ascii=False)},
+        {'role': 'user', 'content': 'Write a short factual introduction IN KOREAN (한국어) using only the repository data below. Use Korean sentences, not English. Return ONLY one JSON object with the exact English keys title, summary, highlights, why, category. highlights must have 3 Korean strings.\n' + json.dumps(data, ensure_ascii=False)},
     ]
     for attempt in range(2):
-        text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True, enable_thinking=False)
         inputs = tokenizer(text, return_tensors='pt')
         print(f'Generating Korean summary (attempt {attempt + 1})', file=sys.stderr, flush=True)
         with torch.inference_mode():
@@ -53,7 +53,7 @@ def main():
             return
         except (ValueError, TypeError) as error:
             print(f'Summary validation failed: {error}; generated text: {answer[:1500]}', file=sys.stderr, flush=True)
-            messages += [{'role':'assistant','content':answer}, {'role':'user','content':'위 응답의 형식을 고쳐주세요. 모든 설명은 한국어로 작성하세요. title, summary, highlights(문자열 3개 배열), why, category(AI 또는 개발 도구) 필드를 가진 JSON만 출력하세요.'}]
+            messages += [{'role':'assistant','content':answer}, {'role':'user','content':'Your answer was invalid. Translate ALL descriptions into KOREAN (한국어). Do not repeat the English answer. Return only JSON with title, summary, highlights (3 Korean strings), why, category (AI or 개발 도구).'}]
     raise ValueError('Model did not produce a valid Korean summary after two attempts')
 
 if __name__ == '__main__':
