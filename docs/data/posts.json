@@ -2,7 +2,7 @@
   {
     "title": "l0ng-ai/openidea",
     "summary": "OpenIDEA는 Rust 기반의 IDE로 IntelliJ IDEA 스타일의 키맵, 도구 창, 검색-모두 찾기 기능을 제공하며, 60여 개 언어를 지원합니다. 이는 크로스 플랫폼 및 터미널, Git, HTTP 클라이언트 등을 포함합니다.",
-    "why": "OpenIDEA는 빠른 성능과 Rust 기반의 효율적인 IDE를 제공하지만, IntelliJ IDEA와 같은 기능의 풍부함이나 사용자 친화성은 떨어질 수 있습니다.",
+    "why": "IntelliJ IDEA 방식의 키맵과 도구 창에 익숙한 개발자가 다른 IDE를 살펴볼 때 참고할 수 있습니다. 공식 README에 따르면 플러그인 API는 아직 프리뷰 단계입니다. 벤치마크는 작성자가 명시한 환경의 측정값이므로 실제 프로젝트에서 직접 확인하세요.",
     "highlights": [
       "Rust 기반의 IDE로 IntelliJ IDEA 스타일의 인터페이스 및 기능 제공",
       "60여 개 언어를 지원하며 편리한 편집기, 디버깅, Git, HTTP 클라이언트 제공",
@@ -19,7 +19,8 @@
     "generatedAt": "2026-11-08T05:00:40.157Z",
     "kind": "daily",
     "provider": "local-qwen",
-    "model": "Qwen/Qwen3-1.7B"
+    "model": "Qwen/Qwen3-1.7B",
+    "reviewNote": "최초 자동 게시 검증 중 공식 README에 근거해 한계 설명을 교정했습니다."
   },
   {
     "title": "[테스트] Ollama: 내 앱에 오픈 모델을 연결하는 방법",
