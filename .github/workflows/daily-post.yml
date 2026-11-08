@@ -4,6 +4,7 @@ on:
     - cron: '0 21 * * *' # 06:00 Asia/Seoul, following day
   workflow_dispatch:
   push:
+    branches: [main]
     paths:
       - 'scripts/daily-post.mjs'
       - '.github/workflows/daily-post.yml'
