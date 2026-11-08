@@ -13,7 +13,9 @@ def parse_output(text):
     result = json.loads(text)
     if not isinstance(result, dict):
         raise ValueError('Expected object')
-    for key in ('title', 'summary', 'why'):
+    if not isinstance(result.get('title'), str) or not result['title'].strip():
+        raise ValueError('Expected title')
+    for key in ('summary', 'why'):
         if not isinstance(result.get(key), str) or not re.search('[가-힣]', result[key]):
             raise ValueError(f'Expected Korean {key}')
     points = result.get('highlights')
@@ -50,7 +52,7 @@ def main():
             print(json.dumps(result, ensure_ascii=False))
             return
         except (ValueError, TypeError) as error:
-            print(f'Summary validation failed: {error}', file=sys.stderr, flush=True)
+            print(f'Summary validation failed: {error}; generated text: {answer[:1500]}', file=sys.stderr, flush=True)
             messages += [{'role':'assistant','content':answer}, {'role':'user','content':'위 응답의 형식을 고쳐주세요. 모든 설명은 한국어로 작성하세요. title, summary, highlights(문자열 3개 배열), why, category(AI 또는 개발 도구) 필드를 가진 JSON만 출력하세요.'}]
     raise ValueError('Model did not produce a valid Korean summary after two attempts')
 

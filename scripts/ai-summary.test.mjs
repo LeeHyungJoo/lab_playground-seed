@@ -4,6 +4,7 @@ import {parseSummary,summarize} from './ai-summary.mjs';
 const valid={title:'테스트 기술',summary:'공식 자료를 요약합니다.',why:'모델별 조건을 확인하세요.',highlights:['첫 번째 기능','두 번째 기능','세 번째 기능'],category:'AI'};
 test('reject service health responses and non-Korean model output',()=>{
  assert.throws(()=>parseSummary('OK'));
+ assert.equal(parseSummary(JSON.stringify({...valid,title:'ProjectName'})).title,'ProjectName');
  assert.throws(()=>parseSummary(JSON.stringify({...valid,summary:'Not a Korean summary'})));
  assert.throws(()=>parseSummary(JSON.stringify({...valid,highlights:['하나']})));
  assert.deepEqual(parseSummary('```json\n'+JSON.stringify(valid)+'\n```'),valid);
