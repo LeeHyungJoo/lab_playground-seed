@@ -1,5 +1,27 @@
 [
   {
+    "title": "TokenEconomizer",
+    "summary": "TokenEconomizer는 코드 앤서니스의 실행 비용을 줄이는 데 도움을 주는 Python 기반 도구입니다. 이 도구는 이미 실행된 세션의 경험을 기반으로 다음 세션에서의 비용을 줄입니다.",
+    "why": "TokenEconomizer는 코드 앤서니스의 실행 비용을 줄이기 위해 이미 실행된 세션의 경험을 기반으로 하여 효과적인 최적화를 제공합니다. 그러나 특정 조건에서 작동하지 않을 수 있으며, 설정이 복잡할 수 있습니다.",
+    "highlights": [
+      "경험 기반의 비용 최적화: TokenEconomizer는 이미 실행된 세션의 경험을 기반으로 다음 세션에서의 비용을 줄입니다.",
+      "3가지 메커니즘: 미크로 스킬, 도구 제거, 실패 루프 개입을 통해 도구 사용을 최적화합니다.",
+      "다양한 저장소에서 효과적: 5개의 앤서니스-모델 조합에 대해 18.4~30.9%의 비용 감소를 기록하며, 30개의 저장소 × 조합 세션에서 비용을 줄입니다."
+    ],
+    "category": "개발 도구",
+    "date": "2026-11-09",
+    "repository": "microsoft/TokenEconomizer",
+    "url": "https://github.com/microsoft/TokenEconomizer",
+    "stars": 5280,
+    "language": "Python",
+    "createdAt": "2026-10-13T04:16:50Z",
+    "pushedAt": "2026-11-08T22:09:30Z",
+    "generatedAt": "2026-11-09T00:39:27.824Z",
+    "kind": "daily",
+    "provider": "local-qwen",
+    "model": "Qwen/Qwen3-1.7B"
+  },
+  {
     "title": "l0ng-ai/openidea",
     "summary": "OpenIDEA는 Rust 기반의 IDE로 IntelliJ IDEA 스타일의 키맵, 도구 창, 검색-모두 찾기 기능을 제공하며, 60여 개 언어를 지원합니다. 이는 크로스 플랫폼 및 터미널, Git, HTTP 클라이언트 등을 포함합니다.",
     "why": "IntelliJ IDEA 방식의 키맵과 도구 창에 익숙한 개발자가 다른 IDE를 살펴볼 때 참고할 수 있습니다. 공식 README에 따르면 플러그인 API는 아직 프리뷰 단계입니다. 벤치마크는 작성자가 명시한 환경의 측정값이므로 실제 프로젝트에서 직접 확인하세요.",
