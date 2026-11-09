@@ -2,6 +2,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { summarize } from './ai-summary.mjs';
 const file = new URL('../docs/data/posts.json', import.meta.url);
 export const dayInSeoul = (date = new Date()) => new Intl.DateTimeFormat('en-CA', {timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).format(date);
+export const hasDailyPost = (posts, day=dayInSeoul()) => posts.some(p=>p.date===day && p.kind!=='test' && p.kind!=='initial');
 export function selectRepo(items, posts) {
  const used = new Set(posts.map(p=>p.repository));
  return items.filter(r=>!r.archived && !r.fork && !used.has(r.full_name)).sort((a,b)=>b.stargazers_count-a.stargazers_count)[0];
@@ -12,7 +13,7 @@ async function github(path) {
 }
 export async function run() {
  const posts=JSON.parse(await readFile(file,'utf8')); const today=dayInSeoul();
- if(posts.some(p=>p.date===today && p.kind!=='test' && p.kind!=='initial')){console.log('Already posted today');return;}
+ if(hasDailyPost(posts,today)){console.log('Already posted today');return;}
  const since=new Date(Date.now()-30*86400000).toISOString().slice(0,10);
  const batches=await Promise.all(['llm','artificial-intelligence','developer-tools'].map(topic=>github(`search/repositories?q=${encodeURIComponent(`topic:${topic} pushed:>=${since} stars:>=100 archived:false`)}&sort=updated&order=desc&per_page=40`)));
  const pool=[...new Map(batches.flatMap(b=>b.items).map(r=>[r.full_name,r])).values()];

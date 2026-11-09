@@ -1,7 +1,9 @@
 name: Daily AI & Code
 on:
   schedule:
-    - cron: '0 21 * * *' # 06:00 Asia/Seoul, following day
+    - cron: '0 21 * * *' # Primary: 06:00 Asia/Seoul
+    - cron: '17 21-23,0 * * *' # Recovery: 06:17, 07:17, 08:17, 09:17 KST
+    - cron: '37 21 * * *' # Recovery: 06:37 KST
   workflow_dispatch:
   push:
     branches: [main]
@@ -31,9 +33,10 @@ jobs:
         run: |
           node --input-type=module <<'JS'
           import { readFileSync, appendFileSync } from 'node:fs';
-          import { dayInSeoul } from './scripts/daily-post.mjs';
+          import { dayInSeoul, hasDailyPost } from './scripts/daily-post.mjs';
           const posts=JSON.parse(readFileSync('docs/data/posts.json','utf8'));
-          const exists=posts.some(p=>p.date===dayInSeoul()&&p.kind!=='test'&&p.kind!=='initial');
+          const exists=hasDailyPost(posts);
+          appendFileSync(process.env.GITHUB_STEP_SUMMARY, `Korea date: ${dayInSeoul()}\nDaily post already exists: ${exists}\n`);
           appendFileSync(process.env.GITHUB_OUTPUT,`exists=${exists}\n`);
           JS
       - uses: actions/setup-python@v5
