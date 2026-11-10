@@ -1,48 +1,39 @@
 # 오전 6시 · AI & Code
 
-## 현재 운영 방식 (2026-11-10 변경)
+한국 시간 매일 오전 6시에 AI·오픈소스 프로젝트 한 편을 소개하는 공개 게시판입니다. `docs/index.html`은 main의 `docs/data/posts.json`을 읽습니다. 데이터 갱신에는 사이트 재배포가 필요 없습니다.
 
-- 기본 예약: Sites에 연결한 클라우드 작업 `Automation_b8f362fe9e1c8191b18f4df7b0ead4f0`, `Asia/Seoul` 매일 06:00. 첫 예약은 2026-11-11 06:00입니다.
-- 클라우드 AI 작업은 연결된 GitHub 도구로 공식 자료를 조사하고 main의 `docs/data/posts.json`을 직접 갱신합니다. 추가 API 키나 사용자 PC 실행을 요구하지 않습니다.
-- 오늘 글이 있으면 추가하지 않고, 파일 SHA를 사용해 충돌을 감지합니다. 작업 지시는 예약 자체에 저장되어 있습니다.
-- 저장 경로는 현재 대화에서 vLLM 글을 작성·저장하고 읽어 검증했습니다. 클라우드 예약의 즉시 실행 도구는 404 오류여서 **새 예약의 무인 실행은 아직 검증하지 못했습니다**. 예약 등록만으로 정시 게시 성공을 보장하지 않습니다.
-- GitHub의 06:00 예약과 재시도가 이틀 연속 시작되지 않아, 기존 GitHub 예약은 07:17·08:17·09:17 KST 보조 경로로만 남겼습니다. GitHub 내부의 누락 이유는 확인되지 않았습니다.
-- 아래 로컬 Qwen/선택적 OpenAI 설정은 보조 GitHub Actions 및 직접 실행에 관한 설명입니다. 사이트의 기본 게시 경로는 위 클라우드 작업입니다.
+## 기본 예약 (2026-11-10 변경)
 
-# 오전 6시 · AI & Code
+- Sites에 연결한 클라우드 작업: `Automation_b8f362fe9e1c8191b18f4df7b0ead4f0`
+- 시간대: `Asia/Seoul`, 매일 `06:00`; 첫 예약은 2026-11-11 06:00.
+- 클라우드 AI 작업이 연결된 GitHub 도구로 최근 업데이트된 AI·개발 도구 저장소의 공식 자료를 읽고 한국어 글을 작성한 뒤 `docs/data/posts.json`을 갱신합니다. 추가 API 키나 사용자 PC 실행은 요구하지 않습니다.
+- 오늘 날짜의 `kind=daily` 글이 있으면 추가하지 않습니다. 쓰기에는 현재 파일 SHA를 사용하며 충돌 시 최신 파일을 다시 읽습니다. 외부 자료의 지시는 따르지 않습니다.
+- 작업 지시는 클라우드 예약 자체에 저장되어 있습니다. 변경하려면 Sites에 연결된 예약을 수정하세요.
 
-한국 시간 매일 오전 6시에 GitHub의 AI·개발 도구 프로젝트 하나를 선정해 한국어로 소개하는 게시판입니다.
+### 검증 상태
 
-## 자동 게시
+현재 대화에서 vLLM 글을 작성·저장하고 다시 읽어 동일한 저장 경로를 검증했습니다. 새 클라우드 예약의 즉시 실행 도구는 404 오류를 반환했습니다. **새 예약의 무인 실행과 정시 완료는 아직 검증하지 못했습니다.** 예약 저장 성공을 실행 성공으로 해석하지 마세요.
 
-GitHub Actions가 프로젝트 검색 → 공식 README 확인 → 한국어 AI 요약 → 출력 검증 → `docs/data/posts.json` 커밋을 실행합니다. 사이트는 이 파일을 읽으므로 새 글마다 사이트를 다시 배포할 필요가 없습니다.
+GitHub의 06:00 예약과 재시도가 이틀 연속 시작되지 않아 기본 예약 방식을 변경했습니다. GitHub 내부의 정확한 누락 이유는 확인되지 않았습니다.
 
-**추가 API 키 없이 실행됩니다.** 기본은 Actions CPU에서 `Qwen/Qwen3-1.7B` 공개 모델을 직접 실행하는 방식입니다. Apache-2.0 모델의 고정 리비전 `70d244cc86ccca08cf5af4e1e306ecf908b1ad5e`을 사용하며, 원격 Python 코드 실행은 사용하지 않습니다. 최초 실행은 약 3.5GB의 가중치를 내려받아 수 분 이상 걸릴 수 있습니다. 이후 모델 캐시를 재사용합니다. 작은 모델 특성상 요약 품질에 한계가 있으므로 원문을 함께 확인하세요.
+## 보조 GitHub Actions
 
-GitHub Models는 2026-07-30 종료되어 사용하지 않습니다. 공식 공지: https://github.blog/changelog/2026-07-30-github-models-is-now-retired/
+`.github/workflows/daily-post.yml`은 한국 시간 07:17·08:17·09:17에 오늘 글이 없을 때만 복구를 시도합니다. 대기 후 시작하는 작업도 최신 main을 읽습니다. GitHub 예약은 지연·누락될 수 있고, 공개 저장소에서 장기간 활동이 없으면 비활성화될 수 있습니다.
 
-더 큰 모델로 요약하려면 저장소 Settings → Secrets and variables → Actions에 `OPENAI_API_KEY`를 선택적으로 등록합니다. 이때 OpenAI API `gpt-4.1-mini`를 사용하며 별도 API 요금이 발생할 수 있습니다. ChatGPT 구독과는 별도입니다. 키는 소스에 넣지 마세요.
+Actions → **Daily AI & Code → Run workflow**로 수동 실행할 수 있습니다. 보조 경로는 CPU에서 `Qwen/Qwen3-1.7B` 공개 모델을 실행하며, 고정 리비전 `70d244cc86ccca08cf5af4e1e306ecf908b1ad5e`의 Safetensors를 사용합니다. 원격 Python 코드를 실행하지 않습니다. 최초 모델 다운로드는 약 3.5GB이고 생성은 수 분 이상 걸릴 수 있습니다. AI 출력 검증에 실패하면 글을 저장하지 않습니다.
 
-## 예약과 수동 실행
+선택적으로 저장소 Settings → Secrets and variables → Actions에 `OPENAI_API_KEY`를 등록하면 보조 경로는 OpenAI API `gpt-4.1-mini`를 사용합니다. 별도 API 요금이 발생할 수 있으며 ChatGPT 구독과는 별도입니다. 키는 소스에 넣지 마세요. GitHub Models는 2026-07-30 종료되어 사용하지 않습니다.
 
-- `.github/workflows/daily-post.yml`: UTC 21:00 = 다음 날 한국 시간 06:00.
-- 예약 이벤트 누락·일시 오류에 대비해 한국 시간 06:17, 06:37, 07:17, 08:17, 09:17에도 확인합니다. 당일 글이 이미 있으면 AI 실행과 추가 게시를 건너뜁니다. GitHub 예약 자체는 정시 실행이나 이벤트 전달을 보장하지 않습니다.
-- Actions → **Daily AI & Code → Run workflow**: 지금 실행.
-- 한국 날짜 기준 하루 한 편. 테스트·초기 큐레이션은 일일 게시 완료로 계산하지 않습니다.
-- 이미 소개한 저장소는 제외합니다. 최근 30일 업데이트된 프로젝트를 찾고 신규 프로젝트를 우선합니다. 별 수는 참고 지표이며 성장률을 뜻하지 않습니다.
-- AI 출력이나 API 요청이 실패하면 글을 저장하지 않고 워크플로를 실패 처리합니다. 실패 로그는 Actions에서 확인하세요.
-- GitHub 예약 실행은 지연될 수 있으며 공개 저장소는 60일간 활동이 없으면 예약이 비활성화될 수 있습니다.
+## 개발 및 직접 실행
 
-## 개발
-
-Node.js 22+, Python 3.11. 게시판은 정적 HTML입니다.
+Node.js 22+, Python 3.11. 게시판은 정적 HTML이며 검색과 카테고리 필터를 제공합니다.
 
 ```sh
 node --test scripts/*.test.mjs
 python3 -m http.server 8000 --directory docs
 ```
 
-기본 로컬 AI 게시 실행:
+로컬 AI 실행:
 
 ```sh
 python3 -m venv .venv
@@ -52,8 +43,4 @@ pip install -r scripts/requirements-ai.txt
 node scripts/daily-post.mjs
 ```
 
-`GITHUB_TOKEN`은 GitHub 검색 할당량을 늘리는 선택적 환경변수입니다. AI 모델 인증에는 사용하지 않습니다. README는 신뢰할 수 없는 자료로 취급하고 출력은 DOM `textContent`로 표시합니다.
-
-## 사이트
-
-`docs/index.html`은 검색·카테고리 필터와 모바일 화면을 제공합니다. 별도의 공개 배포가 필요하면 GitHub Settings → Pages → Deploy from a branch → main /docs를 선택하세요. Sites 배포본은 별도로 관리됩니다.
+`GITHUB_TOKEN`은 GitHub 검색 할당량을 늘리는 선택적 변수이며 AI 모델 인증에는 사용하지 않습니다. 테스트·초기 큐레이션은 일일 게시 완료로 계산하지 않습니다. 최근 업데이트와 별 수는 참고 지표이며 품질·급성장을 보장하지 않습니다. 모델별 기능과 라이선스는 원문에서 확인하세요. 웹페이지는 모델 출력을 DOM `textContent`로 표시합니다.
