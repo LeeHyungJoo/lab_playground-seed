@@ -1,5 +1,27 @@
 [
   {
+    "title": "Browser Use: AI 에이전트에 실제 브라우저 작업을 맡기는 도구",
+    "summary": "Browser Use는 AI 에이전트가 실제 브라우저를 조작하도록 돕는 오픈소스 Python 라이브러리입니다. 공식 README는 로컬 또는 클라우드 브라우저 실행, CLI와 Python 연동, 구조화 출력과 사용자 정의 도구 같은 기능을 소개합니다.",
+    "highlights": [
+      "Chrome DevTools Protocol을 이용해 로컬 또는 클라우드 브라우저 제어",
+      "CLI와 Python 라이브러리로 기존 에이전트나 애플리케이션에 연동",
+      "구조화 출력, 파일 업로드·다운로드, 사용자 정의 도구와 도메인 제한 지원"
+    ],
+    "why": "웹 페이지 탐색·입력·다운로드처럼 브라우저가 필요한 반복 작업을 AI 에이전트에 연결하려는 개발자가 살펴볼 만합니다. 릴리스 변화로 API가 깨질 수 있어 README는 정확한 버전 고정을 권장하며, 도메인 제한과 비밀값 처리도 완전한 보안 샌드박스는 아니므로 신뢰하기 어려운 작업은 격리된 환경에서 실행해야 합니다.",
+    "category": "AI",
+    "date": "2026-11-11",
+    "repository": "browser-use/browser-use",
+    "url": "https://github.com/browser-use/browser-use",
+    "stars": 120584,
+    "language": "Python",
+    "createdAt": "2024-10-31T16:00:56Z",
+    "pushedAt": "2026-11-10T16:50:53Z",
+    "generatedAt": "2026-11-10T21:03:44Z",
+    "kind": "daily",
+    "provider": "cloud-agent",
+    "sourceUrl": "https://github.com/browser-use/browser-use/blob/main/README.md"
+  },
+  {
     "title": "vLLM: 오픈 모델을 서비스로 연결하는 추론 엔진",
     "summary": "vLLM은 대규모 언어 모델의 추론과 API 서빙을 위한 오픈소스 라이브러리입니다. 공식 README는 PagedAttention, 연속 배칭, OpenAI 호환 API 서버 등 모델 운영에 필요한 기능을 소개합니다.",
     "highlights": [
