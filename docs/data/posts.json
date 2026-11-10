@@ -1,5 +1,28 @@
 [
   {
+    "title": "vLLM: 오픈 모델을 서비스로 연결하는 추론 엔진",
+    "summary": "vLLM은 대규모 언어 모델의 추론과 API 서빙을 위한 오픈소스 라이브러리입니다. 공식 README는 PagedAttention, 연속 배칭, OpenAI 호환 API 서버 등 모델 운영에 필요한 기능을 소개합니다.",
+    "highlights": [
+      "PagedAttention과 연속 배칭으로 추론 요청 처리 지원",
+      "OpenAI 호환 API 서버와 스트리밍 출력 제공",
+      "여러 모델 아키텍처와 하드웨어 환경 지원"
+    ],
+    "why": "오픈 모델을 챗봇이나 앱의 API로 제공하려는 개발자가 살펴볼 만한 프로젝트입니다. 지원 모델과 하드웨어 조건은 조합에 따라 다르므로 공식 문서에서 확인하세요. 성능은 실제 환경에서 측정해야 합니다.",
+    "category": "AI",
+    "date": "2026-11-10",
+    "repository": "vllm-project/vllm",
+    "url": "https://github.com/vllm-project/vllm",
+    "stars": 96630,
+    "language": "Python",
+    "createdAt": "2023-02-09T11:23:20Z",
+    "pushedAt": "2026-11-10T01:06:27Z",
+    "generatedAt": "2026-11-10T01:26:22.025Z",
+    "kind": "daily",
+    "provider": "cloud-agent",
+    "sourceUrl": "https://github.com/vllm-project/vllm/blob/main/README.md",
+    "reviewNote": "예약 경로 전환 검증을 위해 현재 대화에서 작성·저장했습니다. 예약 실행의 성공 사례는 아닙니다."
+  },
+  {
     "title": "TokenEconomizer",
     "summary": "TokenEconomizer는 코드 앤서니스의 실행 비용을 줄이는 데 도움을 주는 Python 기반 도구입니다. 이 도구는 이미 실행된 세션의 경험을 기반으로 다음 세션에서의 비용을 줄입니다.",
     "why": "TokenEconomizer는 코드 앤서니스의 실행 비용을 줄이기 위해 이미 실행된 세션의 경험을 기반으로 하여 효과적인 최적화를 제공합니다. 그러나 특정 조건에서 작동하지 않을 수 있으며, 설정이 복잡할 수 있습니다.",
