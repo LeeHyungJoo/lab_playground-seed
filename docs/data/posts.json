@@ -1,5 +1,27 @@
 [
   {
+    "title": "Firecrawl: 웹 데이터를 AI가 쓰기 좋은 형태로 수집하는 도구",
+    "summary": "Firecrawl은 웹 검색과 스크래핑 결과를 마크다운, HTML, 스크린샷 또는 구조화된 JSON으로 제공하는 오픈소스 도구입니다. 공식 README는 단일 페이지 수집부터 사이트 전체 크롤링, 페이지 상호작용, 여러 언어용 SDK까지 소개합니다.",
+    "highlights": [
+      "웹 검색 결과와 페이지 본문을 함께 가져오는 Search API 제공",
+      "URL을 마크다운·HTML·스크린샷·구조화 JSON으로 변환하고 사이트 전체를 크롤링",
+      "페이지에서 클릭·스크롤·입력 작업을 수행한 뒤 필요한 데이터를 추출"
+    ],
+    "why": "RAG, 검색형 서비스나 AI 에이전트에 웹 문서를 공급할 때 수집·정제 로직을 직접 구축하는 부담을 줄이는 데 유용합니다. 자체 호스팅 코드는 주로 AGPL-3.0이므로 배포 방식에 따른 의무를 확인해야 하며, 수집 대상 사이트의 이용약관·개인정보 정책·robots.txt와 호스팅 서비스의 비용 및 제한도 검토해야 합니다.",
+    "category": "AI",
+    "date": "2026-11-12",
+    "repository": "firecrawl/firecrawl",
+    "url": "https://github.com/firecrawl/firecrawl",
+    "stars": 200916,
+    "language": "TypeScript",
+    "createdAt": "2024-04-15T21:02:29Z",
+    "pushedAt": "2026-11-11T20:55:17Z",
+    "generatedAt": "2026-11-11T21:00:43Z",
+    "kind": "daily",
+    "provider": "cloud-agent",
+    "sourceUrl": "https://github.com/firecrawl/firecrawl/blob/main/README.md"
+  },
+  {
     "title": "Browser Use: AI 에이전트에 실제 브라우저 작업을 맡기는 도구",
     "summary": "Browser Use는 AI 에이전트가 실제 브라우저를 조작하도록 돕는 오픈소스 Python 라이브러리입니다. 공식 README는 로컬 또는 클라우드 브라우저 실행, CLI와 Python 연동, 구조화 출력과 사용자 정의 도구 같은 기능을 소개합니다.",
     "highlights": [
