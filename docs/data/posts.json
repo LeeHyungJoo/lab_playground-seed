@@ -1,5 +1,27 @@
 [
   {
+    "title": "uv: Python 환경과 패키지를 한 도구로 관리하기",
+    "summary": "uv는 Rust로 작성된 Python 패키지 및 프로젝트 관리 도구입니다. 공식 README는 의존성 잠금과 가상환경, Python 버전, 단일 파일 스크립트와 명령줄 도구를 하나의 CLI에서 관리하는 기능을 소개합니다.",
+    "highlights": [
+      "프로젝트 의존성·가상환경·범용 잠금 파일과 워크스페이스 관리",
+      "여러 Python 버전을 설치하고 프로젝트별 버전을 지정",
+      "pip 호환 명령과 uvx를 통한 Python 명령줄 도구 실행·설치"
+    ],
+    "why": "pip, virtualenv, pipx, pyenv 등으로 나뉜 Python 개발 환경을 단순화하고 재현 가능한 의존성 구성을 만들 때 유용합니다. 기존 프로젝트를 옮길 때는 잠금 파일과 CI·배포 명령의 호환성을 먼저 검증해야 하며, README의 성능 수치는 특정 벤치마크 결과이므로 실제 환경에서 직접 측정해야 합니다.",
+    "category": "개발 도구",
+    "date": "2026-11-13",
+    "repository": "astral-sh/uv",
+    "url": "https://github.com/astral-sh/uv",
+    "stars": 91951,
+    "language": "Rust",
+    "createdAt": "2023-10-02T20:24:11Z",
+    "pushedAt": "2026-11-12T17:03:06Z",
+    "generatedAt": "2026-11-12T20:56:21Z",
+    "kind": "daily",
+    "provider": "cloud-agent",
+    "sourceUrl": "https://github.com/astral-sh/uv/blob/main/README.md"
+  },
+  {
     "title": "Firecrawl: 웹 데이터를 AI가 쓰기 좋은 형태로 수집하는 도구",
     "summary": "Firecrawl은 웹 검색과 스크래핑 결과를 마크다운, HTML, 스크린샷 또는 구조화된 JSON으로 제공하는 오픈소스 도구입니다. 공식 README는 단일 페이지 수집부터 사이트 전체 크롤링, 페이지 상호작용, 여러 언어용 SDK까지 소개합니다.",
     "highlights": [
