@@ -1,6 +1,7 @@
 import {mkdir,rm,cp,readFile,writeFile,stat} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {spawnSync} from 'node:child_process';
 import {visiblePosts,routeURL} from '../docs/lib/catalog.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const destination=path.join(root,'dist');
@@ -15,4 +16,6 @@ const urls=[origin+'/',...['articles','albums','board'].map(view=>origin+'/'+rou
 await writeFile(path.join(destination,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(url=>`<url><loc>${xmlEscape(url)}</loc></url>`).join('')}</urlset>`);
 await writeFile(path.join(destination,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`);
 for(const file of ['index.html','app.mjs','assets/styles.css','assets/og-image.png','lib/catalog.mjs','lib/repository.mjs','lib/views.mjs','data/posts.json','data/albums.json','data/board.json','data/editorial-policy.json','automation/editorial-guide.md'])await stat(path.join(destination,file));
+const archive=spawnSync('git',['-C',root,'archive','--format=zip',`--output=${path.join(destination,'starter.zip')}`,'HEAD'],{encoding:'utf8'});
+if(archive.status!==0)throw Error('Could not build the source archive');
 console.log(`Static build complete: ${posts.length} published articles. Output: dist/`);
