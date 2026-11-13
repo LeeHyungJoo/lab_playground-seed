@@ -130,6 +130,24 @@
               "status": "skipped"
             }
           ]
+        },
+        {
+          "at": "2026-11-13T07:39:58.106Z",
+          "bundleId": "2026-11-13-news-source-retry",
+          "results": [
+            {
+              "group": "development",
+              "status": "skipped"
+            },
+            {
+              "group": "news",
+              "status": "skipped"
+            },
+            {
+              "group": "culture",
+              "status": "skipped"
+            }
+          ]
         }
       ]
     }
