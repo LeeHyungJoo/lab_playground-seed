@@ -150,6 +150,88 @@
           ]
         }
       ]
+    },
+    "2026-11-14": {
+      "date": "2026-11-14",
+      "groups": {
+        "development": {
+          "attempts": [
+            {
+              "at": "2026-11-13T20:59:37.894Z",
+              "status": "published",
+              "code": "published",
+              "message": "검증 후 저장했습니다.",
+              "bundleId": "2026-11-14-daily-three-candidates-v1"
+            }
+          ],
+          "status": "published",
+          "articleId": "2026-11-14-development-bun",
+          "publishedAt": "2026-11-14T06:00:00+09:00",
+          "code": "published",
+          "message": "검증 후 저장했습니다.",
+          "fingerprint": "3e8d3b0a835e15a98edbe62b424df35c6cf7baabd0fb3fce05a97cb1ef8fae58",
+          "lastAttemptAt": "2026-11-13T20:59:37.894Z"
+        },
+        "news": {
+          "attempts": [
+            {
+              "at": "2026-11-13T20:59:37.894Z",
+              "status": "held",
+              "code": "source-unreachable",
+              "message": "출처 응답 오류 (403): apnews.com",
+              "bundleId": "2026-11-14-daily-three-candidates-v1"
+            }
+          ],
+          "status": "held",
+          "code": "source-unreachable",
+          "message": "출처 응답 오류 (403): apnews.com",
+          "fingerprint": "3e8d3b0a835e15a98edbe62b424df35c6cf7baabd0fb3fce05a97cb1ef8fae58",
+          "lastAttemptAt": "2026-11-13T20:59:37.894Z"
+        },
+        "culture": {
+          "attempts": [
+            {
+              "at": "2026-11-13T20:59:37.894Z",
+              "status": "published",
+              "code": "published",
+              "message": "검증 후 저장했습니다.",
+              "bundleId": "2026-11-14-daily-three-candidates-v1"
+            }
+          ],
+          "status": "published",
+          "articleId": "2026-11-14-culture-bond-price-yield",
+          "publishedAt": "2026-11-14T06:00:00+09:00",
+          "code": "published",
+          "message": "검증 후 저장했습니다.",
+          "fingerprint": "3e8d3b0a835e15a98edbe62b424df35c6cf7baabd0fb3fce05a97cb1ef8fae58",
+          "lastAttemptAt": "2026-11-13T20:59:37.894Z"
+        }
+      },
+      "policyVersion": "2026-11-13.1",
+      "updatedAt": "2026-11-13T20:59:37.894Z",
+      "runs": [
+        {
+          "at": "2026-11-13T20:59:37.894Z",
+          "bundleId": "2026-11-14-daily-three-candidates-v1",
+          "results": [
+            {
+              "group": "development",
+              "status": "published",
+              "code": "published"
+            },
+            {
+              "group": "news",
+              "status": "held",
+              "code": "source-unreachable"
+            },
+            {
+              "group": "culture",
+              "status": "published",
+              "code": "published"
+            }
+          ]
+        }
+      ]
     }
   }
 }

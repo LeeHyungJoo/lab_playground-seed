@@ -1,6 +1,149 @@
 [
   {
     "schemaVersion": 2,
+    "id": "2026-11-14-culture-bond-price-yield",
+    "date": "2026-11-14",
+    "kind": "daily",
+    "status": "published",
+    "title": "금리가 오르면 채권 가격은 왜 내려갈까",
+    "summary": "고정금리 채권의 시장가격과 수익률은 대체로 반대 방향으로 움직인다. 이미 정해진 이자 지급액을 새로운 시장금리와 비교하면 이 관계와 금리 위험을 이해할 수 있다.",
+    "highlights": [
+      "채권은 정해진 이자와 만기 원금을 약속하는 거래 가능한 빚이다.",
+      "새 채권의 금리가 오르면 낮은 이자를 주는 기존 채권은 가격이 내려가야 경쟁력이 생긴다.",
+      "만기가 길수록 금리 변화에 노출되는 기간이 길어 가격 변동 위험이 커지는 경향이 있다."
+    ],
+    "category": "economy",
+    "group": "life",
+    "publicationGroup": "culture",
+    "topicKey": "economy:bonds:price-yield",
+    "coreConcept": "고정금리 채권의 시장가격과 수익률이 반대로 움직이는 원리와 만기 전 매도의 금리 위험",
+    "keywords": [
+      "bond-price",
+      "bond-yield",
+      "coupon",
+      "interest-rate-risk",
+      "maturity",
+      "fixed-income"
+    ],
+    "semanticSummary": "고정된 쿠폰과 원금을 주는 기존 채권이 새 시장금리와 경쟁하면서 가격과 수익률이 반대로 움직이는 이유를 설명하고, 만기·신용위험·중도매도 여부를 함께 살피는 생활 속 판단 질문으로 연결한다.",
+    "content": [
+      {
+        "heading": "채권은 사고팔 수 있는 빚이다",
+        "paragraphs": [
+          "채권은 정부나 기업이 돈을 빌리면서 일정한 이자와 만기 원금 상환을 약속한 증서다. 이때 정기적으로 지급하는 이자를 쿠폰이라고 부른다. 예금과 비슷해 보이지만 중요한 차이가 있다. 발행된 채권은 만기 전에도 시장에서 다른 투자자에게 팔 수 있고, 그 거래가격은 계속 달라질 수 있다.[1][3]",
+          "예를 들어 액면가 100만 원인 고정금리 채권이 매년 3만 원의 이자를 준다고 해보자. 약속된 이자와 만기 원금은 그대로여도 오늘 그 채권을 얼마에 사느냐에 따라 구매자가 기대하는 수익률은 달라진다. 채권 뉴스에서 가격과 금리가 함께 등장하는 이유가 여기에 있다."
+        ]
+      },
+      {
+        "heading": "새로운 금리와 경쟁하는 기존 채권",
+        "paragraphs": [
+          "시장금리가 올라 새로 발행되는 비슷한 채권이 매년 4만 원을 준다면, 3만 원을 주는 기존 채권을 같은 100만 원에 살 이유는 줄어든다. 기존 채권이 팔리려면 가격이 내려가 구매자가 내는 돈에 비해 받는 이자의 비율이 높아져야 한다. 반대로 새 채권의 금리가 낮아지면 기존의 높은 쿠폰이 귀해져 가격이 오를 수 있다.[1][3]",
+          "그래서 고정금리 채권의 시장가격과 수익률은 시소처럼 반대 방향으로 움직인다. 영란은행도 중앙은행이 채권을 사서 가격을 올리면 고정 쿠폰과 비교한 수익률은 낮아진다고 설명한다. 가격이 바뀌어도 쿠폰 금액은 갑자기 바뀌지 않기 때문에 분모인 구매가격이 관계를 조정한다.[2]"
+        ]
+      },
+      {
+        "heading": "쿠폰, 가격, 수익률은 같은 말이 아니다",
+        "paragraphs": [
+          "쿠폰금리는 발행할 때 약속한 이자를 액면가와 비교한 비율이다. 현재수익률은 대략 연간 쿠폰을 지금의 시장가격으로 나눈 값이고, 만기수익률은 현재 가격과 앞으로 받을 쿠폰, 만기 원금, 남은 시간을 함께 고려한다. 숫자 하나만 보고 채권의 수익을 판단하기 어려운 이유다.[1][3]",
+          "신문에서 국채 수익률이 올랐다고 할 때 이미 가진 모든 채권의 쿠폰이 즉시 오른다는 뜻은 아니다. 시장에서 새로 요구하는 보상 수준이 높아지고 기존 채권 가격이 조정됐다는 의미일 수 있다. 가격 하락과 이자 지급 약속의 불이행도 구분해야 한다. 전자는 금리 변화로 생길 수 있고, 후자는 발행자가 갚지 못하는 신용위험이다."
+        ]
+      },
+      {
+        "heading": "만기가 길면 왜 더 민감할까",
+        "paragraphs": [
+          "미국 SEC의 투자자 안내는 다른 조건이 비슷하다면 만기가 긴 채권이 금리 변화에 더 민감한 경향이 있다고 설명한다. 먼 미래까지 낮은 쿠폰을 받아야 하는 채권은 시장금리가 오른 상태가 오래 이어질 때 불리함이 커진다. 반대로 만기가 가까우면 원금을 돌려받아 새 금리로 다시 선택할 시점도 빨리 온다.[1]",
+          "낮은 쿠폰의 채권도 비슷한 조건의 높은 쿠폰 채권보다 금리 변화에 더 민감할 수 있다. 다만 실제 가격은 만기와 쿠폰만으로 정해지지 않는다. 발행자의 신용도, 거래 유동성, 중도상환 조건, 세금과 물가 기대도 함께 영향을 준다. ‘금리 상승이면 모든 채권이 똑같이 몇 퍼센트 하락한다’는 공식은 없다."
+        ]
+      },
+      {
+        "heading": "보유 목적에 따라 같은 변동의 의미가 달라진다",
+        "paragraphs": [
+          "채권을 만기까지 보유하고 발행자가 약속을 지킨다면 중간의 시장가격 변동은 당장 현금흐름을 바꾸지 않을 수 있다. 그러나 만기 전에 팔아야 한다면 금리가 오른 시점의 가격 하락이 실제 손실로 이어질 수 있다. ‘안전한 채권’이라는 표현을 들을 때 무엇이 안전한지, 원금 상환인지 중도 매도가격인지 나눠 물어야 한다.[1]",
+          "채권형 펀드는 개별 채권 한 장과도 다르다. 펀드는 여러 채권을 계속 사고팔며 정해진 단일 만기일이 없을 수 있다. 따라서 개별 채권을 만기까지 보유하는 설명을 그대로 적용하면 곤란하다. 상품 설명에서 평균 만기, 듀레이션, 신용등급과 비용을 함께 확인해야 한다."
+        ]
+      },
+      {
+        "heading": "생활 속에서 써먹는 세 가지 질문",
+        "paragraphs": [
+          "금리 뉴스와 채권 상품을 볼 때 먼저 이자 지급이 고정인지 변동인지 확인하자. 다음으로 돈이 필요한 시점과 채권의 만기가 맞는지 살펴보자. 마지막으로 수익률이 높아진 이유가 단순한 시장금리 변화인지, 발행자의 상환 위험이 커졌기 때문인지 구분해야 한다.",
+          "오늘의 개념은 특정 채권을 사라는 권유가 아니다. 같은 3%라는 숫자도 액면가의 쿠폰인지, 현재 가격을 반영한 수익률인지에 따라 뜻이 달라진다는 읽기 연습이다. 다음번에 ‘채권금리 급등’이라는 제목을 보면 가격, 만기, 신용위험 가운데 무엇이 바뀌었는지 한 번 더 확인해보자."
+        ],
+        "bullets": [
+          "약속된 쿠폰과 현재 시장수익률을 구분했는가?",
+          "만기 전에 팔 가능성과 그때의 가격 위험을 고려했는가?",
+          "높은 수익률 뒤에 금리 위험 외의 신용위험이 있는가?"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "Investor Bulletin: Fixed Income Investments — When Interest Rates Go Up, Prices of Fixed-Rate Bonds Fall",
+        "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-86",
+        "publisher": "U.S. Securities and Exchange Commission",
+        "type": "reference",
+        "verifiedAt": "2026-11-14T05:55:35+09:00",
+        "publishedAt": "2013-06-26"
+      },
+      {
+        "title": "Quantitative easing",
+        "url": "https://www.bankofengland.co.uk/monetary-policy/quantitative-easing",
+        "publisher": "Bank of England",
+        "type": "reference",
+        "verifiedAt": "2026-11-14T05:55:35+09:00",
+        "publishedAt": "2025-12-05"
+      },
+      {
+        "title": "Bonds and the Yield Curve",
+        "url": "https://www.rba.gov.au/education/resources/explainers/bonds-and-the-yield-curve.html",
+        "publisher": "Reserve Bank of Australia",
+        "type": "reference",
+        "verifiedAt": "2026-11-14T05:55:35+09:00"
+      }
+    ],
+    "provider": "cloud-agent",
+    "generatedAt": "2026-11-14T05:55:35+09:00",
+    "publishedAt": "2026-11-14T06:00:00+09:00",
+    "readingMinutes": 4
+  },
+  {
+    "schemaVersion": 2,
+    "id": "2026-11-14-development-bun",
+    "date": "2026-11-14",
+    "kind": "daily",
+    "status": "published",
+    "title": "Bun: JavaScript 실행부터 테스트·패키지 관리까지 한 번에",
+    "summary": "Bun은 JavaScript와 TypeScript 애플리케이션을 위한 올인원 도구입니다. 공식 README는 런타임, 패키지 관리자, 테스트 러너와 번들러를 하나의 실행 파일로 제공한다고 설명합니다.",
+    "highlights": [
+      "TypeScript와 JSX를 바로 실행하는 JavaScript 런타임",
+      "의존성 설치·워크스페이스·잠금 파일을 다루는 패키지 관리자",
+      "테스트 러너·번들러·단일 실행 파일 컴파일 기능 제공"
+    ],
+    "category": "tools",
+    "group": "development",
+    "publicationGroup": "development",
+    "repository": "oven-sh/bun",
+    "url": "https://github.com/oven-sh/bun",
+    "stars": 96680,
+    "language": "Rust",
+    "createdAt": "2021-04-14T00:48:17Z",
+    "pushedAt": "2026-11-13T20:55:58Z",
+    "why": "Node.js 프로젝트에서 실행·설치·테스트·번들링 도구를 줄이고 개발 흐름을 단순화할 때 검토할 만합니다. 다만 Node.js의 대체를 목표로 해도 모든 패키지와 런타임 동작이 동일하다고 단정할 수 없으므로, 기존 프로젝트는 네이티브 모듈·빌드 스크립트·테스트·배포 환경을 먼저 검증해야 합니다.",
+    "provider": "cloud-agent",
+    "generatedAt": "2026-11-14T05:55:35+09:00",
+    "sourceUrl": "https://github.com/oven-sh/bun/blob/main/README.md",
+    "sources": [
+      {
+        "title": "공식 저장소",
+        "url": "https://github.com/oven-sh/bun",
+        "type": "primary",
+        "verifiedAt": "2026-11-13T20:59:37.894Z"
+      }
+    ],
+    "publishedAt": "2026-11-14T06:00:00+09:00",
+    "readingMinutes": 1
+  },
+  {
+    "schemaVersion": 2,
     "id": "2026-11-13-news-euclid-dr1-foundation",
     "date": "2026-11-13",
     "kind": "daily",
