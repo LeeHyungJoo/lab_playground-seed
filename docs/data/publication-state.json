@@ -187,13 +187,22 @@
               "code": "source-unreachable",
               "message": "출처 응답 오류 (401): www.reuters.com",
               "bundleId": "2026-11-14-news-source-retry-1"
+            },
+            {
+              "at": "2026-11-13T21:01:20.302Z",
+              "status": "published",
+              "code": "published",
+              "message": "검증 후 저장했습니다.",
+              "bundleId": "2026-11-14-news-source-retry-2"
             }
           ],
-          "status": "held",
-          "code": "source-unreachable",
-          "message": "출처 응답 오류 (401): www.reuters.com",
-          "fingerprint": "a20b316f9491e041feca399877c1df582980846c3eb925ad6028b9d01b51cd70",
-          "lastAttemptAt": "2026-11-13T21:00:39.167Z"
+          "status": "published",
+          "code": "published",
+          "message": "검증 후 저장했습니다.",
+          "fingerprint": "0eaa75751f815725506e81efe7546537edc8f980bfd84346c33686b8dfb289c1",
+          "lastAttemptAt": "2026-11-13T21:01:20.302Z",
+          "articleId": "2026-11-14-news-microsoft-365-global-outage-r2",
+          "publishedAt": "2026-11-14T06:00:00+09:00"
         },
         "culture": {
           "attempts": [
@@ -215,7 +224,7 @@
         }
       },
       "policyVersion": "2026-11-13.1",
-      "updatedAt": "2026-11-13T21:00:39.167Z",
+      "updatedAt": "2026-11-13T21:01:20.302Z",
       "runs": [
         {
           "at": "2026-11-13T20:59:37.894Z",
@@ -250,6 +259,25 @@
               "group": "news",
               "status": "held",
               "code": "source-unreachable"
+            },
+            {
+              "group": "culture",
+              "status": "skipped"
+            }
+          ]
+        },
+        {
+          "at": "2026-11-13T21:01:20.302Z",
+          "bundleId": "2026-11-14-news-source-retry-2",
+          "results": [
+            {
+              "group": "development",
+              "status": "skipped"
+            },
+            {
+              "group": "news",
+              "status": "published",
+              "code": "published"
             },
             {
               "group": "culture",
