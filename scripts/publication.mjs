@@ -26,7 +26,7 @@ function requireText(value,label,max=3000){if(typeof value!=='string'||!value.tr
 function sourceURL(value) {
  let u;try{u=new URL(value);}catch{fail('invalid-source-url','출처 URL 형식이 잘못되었습니다.');}
  const host=u.hostname.toLowerCase();
- if(u.protocol!=='https:'||u.username||u.password||u.port||!host.includes('.')||/^[\d.]+$/.test(host)||host.includes(':')||/(^|\.)(localhost|local|internal|test|example|invalid)$/.test(host))fail('invalid-source-url','공개 HTTPS 출처만 허용합니다.');
+ if(u.protocol!=='https:'||u.username||u.password||u.port||!host.includes('.')||/^[\d.]+$/.test(host)||host.includes(':')||/(^|\.)(localhost|local|internal|test|example|invalid)$/.test(host)||/^(?:www\.)?example\.(com|net|org)$/.test(host))fail('invalid-source-url','공개 HTTPS 출처만 허용합니다.');
  return u;
 }
 export async function verifySourceURL(url,{fetcher=fetch}={}) {
@@ -109,13 +109,14 @@ export async function validateArticle(draft,posts,{day=dayInSeoul(),now=new Date
  if(!Array.isArray(p.sources)||!p.sources.length)fail('missing-sources','검증 가능한 출처가 필요합니다.');
  const hosts=new Set();let hasPrimary=false;
  for(const source of p.sources){
-  requireText(source.title,'출처 제목',500);const u=sourceURL(source.url);hosts.add(authority(source.url));hasPrimary ||= source.type==='primary';
+  requireText(source.title,'출처 제목',500);const u=sourceURL(source.url);hasPrimary ||= source.type==='primary';
   const verified=moment(source.verifiedAt);if(!Number.isFinite(verified)||verified>now.getTime()+60000||now.getTime()-verified>settings.newsMaxAgeHours*3600000)fail('unverified-source','출처를 최근에 직접 확인한 기록이 필요합니다.');
   if(category==='news'){
    const published=moment(source.publishedAt);if(!Number.isFinite(published)||published>now.getTime()||freshnessTime-published>settings.newsMaxAgeHours*3600000)fail('stale-source','뉴스 원문 게시일이 없거나 최근 72시간 범위를 벗어났습니다.');
   }
   if(category==='health'&&!settings.healthSourceDomains.some(d=>u.hostname===d||u.hostname.endsWith('.'+d)))fail('untrusted-health-source','건강 글에는 신뢰할 수 있는 의료기관·학술 출처가 필요합니다.');
-  await checkSource(source.url);
+  const checked=await checkSource(source.url);const resolved=checked?.url||source.url;hosts.add(authority(resolved));
+  if(category==='health'&&!settings.healthSourceDomains.some(d=>sourceURL(resolved).hostname===d||sourceURL(resolved).hostname.endsWith('.'+d)))fail('untrusted-health-source','건강 자료의 최종 주소가 신뢰할 수 있는 출처가 아닙니다.');
  }
  if(category==='news'){
   if(hosts.size<settings.newsMinIndependentSources||!hasPrimary)fail('news-source-count','뉴스에는 서로 다른 출처 2곳과 1차 자료가 필요합니다.');

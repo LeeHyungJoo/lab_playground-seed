@@ -41,6 +41,7 @@ test('one legacy development post does not block news/culture; news failure does
 });
 test('news checks the occurrence date, source publication date, independent organizations and source access',async()=>{
  await assert.rejects(()=>validateArticle(life('news',day,{sources:[source('press.official.org'),source('news.official.org')]}),[],options),e=>e.code==='news-source-count');
+ await assert.rejects(()=>validateArticle(life('news'),[],{...options,checkSource:async()=>({url:'https://same-organization.org/article'})}),e=>e.code==='news-source-count');
  await assert.rejects(()=>validateArticle(life('news',day,{sources:[source('official.org',{publishedAt:'2020-01-01'}),source('independent.org')]}),[],options),e=>e.code==='stale-source');
  await assert.rejects(()=>validateArticle(life('news',day,{event:{...life('news').event,occurredOn:'2026-11-14'}}),[],options),e=>e.code==='stale-event');
  await assert.rejects(()=>validateArticle(life('news',day,{sources:[source('official.org',{publishedAt:undefined}),source('independent.org')]}),[],options),e=>e.code==='stale-source');
@@ -73,7 +74,7 @@ test('short, unsourced, wrong-rotation and untrusted-health articles cannot publ
  await assert.rejects(()=>validateArticle(life('philosophy',day,{sources:[]}),[],options),e=>e.code==='missing-sources');
 });
 test('source checking rejects local/private targets and validates redirects without following them blindly',async()=>{
- for(const url of ['http://official.org/','https://127.0.0.1/','https://localhost/','https://10.0.0.1/','https://name:password@official.org/'])await assert.rejects(()=>verifySourceURL(url),e=>e.code==='invalid-source-url');
+ for(const url of ['http://official.org/','https://127.0.0.1/','https://localhost/','https://example.com/','https://10.0.0.1/','https://name:password@official.org/'])await assert.rejects(()=>verifySourceURL(url),e=>e.code==='invalid-source-url');
  await assert.rejects(()=>verifySourceURL('https://official.org/',{fetcher:async()=>new Response('',{status:302,headers:{location:'http://127.0.0.1/private'}})}),e=>e.code==='invalid-source-url');
  await assert.rejects(()=>verifySourceURL('https://official.org/',{fetcher:async()=>new Response('missing',{status:404})}),e=>e.code==='source-unreachable');
 });
