@@ -3,7 +3,7 @@ import {createRepository} from './lib/repository.mjs';
 import {articleListView,articleDetailView,albumsView,albumDetailView,boardView,boardDetailView,notFoundView} from './lib/views.mjs';
 const repository=createRepository();
 const main=document.getElementById('main');let state={articles:[],albums:[],board:[],publication:{}};let loading=false;
-const brand='盡人事待天命 · 진인사대천명';
+const brand='진인사대천명';
 function metadata(title,description){
  document.title=title?`${title} · ${brand}`:brand;
  const entries=[['name','description',description],['property','og:title',document.title],['property','og:description',description],['property','og:url',location.href],['name','twitter:title',document.title],['name','twitter:description',description]];

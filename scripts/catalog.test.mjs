@@ -35,7 +35,7 @@ test('album and board list/detail routes use neutral samples and the exact reque
  const albums=JSON.parse(await readFile(new URL('../docs/data/albums.json',import.meta.url)));const posts=JSON.parse(await readFile(new URL('../docs/data/board.json',import.meta.url)));
  assert.equal(albums.length,4);assert.ok(albums.every(a=>a.isSample&&a.photos.every(p=>p.src.startsWith('assets/placeholder-'))));
  assert.ok(albumsView(albums).includes('album=sample-family-trip'));assert.ok(albumDetailView(albums[0]).includes('실제 사진 아님'));
- assert.equal(posts[0].title,'盡人事待天命에 오신 것을 환영합니다.');assert.equal(posts[0].content.at(-1),'방문해 주셔서 감사합니다.');
+ assert.equal(posts[0].title,'진인사대천명에 오신 것을 환영합니다.');assert.equal(posts[0].content.at(-1),'방문해 주셔서 감사합니다.');
  assert.ok(boardView(posts).includes('post=welcome'));assert.ok(boardDetailView(posts[0]).includes('가족의 일상과 소중한 순간'));assert.ok(!boardView(posts).includes('<button'));
 });
 test('repository adapter can be replaced, uses a snapshot on outages and de-duplicates network reads',async()=>{
