@@ -44,3 +44,10 @@ test('repository adapter can be replaced, uses a snapshot on outages and de-dupl
  repo.clear();await repo.listArticles();assert.equal(calls,4);assert.equal(await repo.getCurrentUser(),null);
  const malformed=new StaticContentRepository({remoteBase:null,localBase:'https://snapshot.org/',fetcher:async()=>Response.json({not:'an array'})});assert.deepEqual(await malformed.listArticles(),[]);
 });
+
+test('repository keeps the native browser fetch receiver and distinguishes network failure from an empty archive',async()=>{
+ const repo=new StaticContentRepository({remoteBase:null,localBase:'https://snapshot.org/',fetcher:function(){assert.equal(this,globalThis);return Promise.resolve(Response.json([legacy]));}});
+ assert.equal((await repo.listArticles()).length,1);assert.equal(repo.failures.size,0);
+ const offline=new StaticContentRepository({remoteBase:null,localBase:'https://snapshot.org/',fetcher:async()=>{throw Error('offline');}});
+ assert.deepEqual(await offline.listArticles(),[]);assert.equal(offline.failures.has('posts.json'),true);
+});

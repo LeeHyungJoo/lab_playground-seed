@@ -29,8 +29,8 @@ function render({focus=false,scroll=false}={}){
 async function load({refresh=false}={}){
  if(loading)return;loading=true;
  if(refresh)repository.clear();
- try{const [articles,albums,board,publication]=await Promise.all([repository.listArticles(),repository.listAlbums(),repository.listBoardPosts(),repository.getPublicationState()]);state={articles,albums,board,publication};render();}
- catch{main.innerHTML='<div class="empty"><h1>기록을 불러오지 못했습니다.</h1><p>잠시 후 새로고침해 주세요.</p></div>';}
+ try{const [articles,albums,board,publication]=await Promise.all([repository.listArticles(),repository.listAlbums(),repository.listBoardPosts(),repository.getPublicationState()]);if(repository.failures.has('posts.json')&&!state.articles.length)throw Error('Article request failed');state={articles:repository.failures.has('posts.json')?state.articles:articles,albums,board,publication};render();}
+ catch{main.innerHTML='<div class="empty"><h1>기록을 불러오지 못했습니다.</h1><p>잠시 후 다시 확인해 주세요.</p><button class="text-button" id="refresh-articles" type="button">다시 불러오기</button></div>';}
  finally{loading=false;}
 }
 document.addEventListener('click',event=>{

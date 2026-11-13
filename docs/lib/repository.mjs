@@ -1,7 +1,7 @@
 const defaultRemote='https://raw.githubusercontent.com/LeeHyungJoo/lab_playground-seed/main/docs/data/';
 export class StaticContentRepository {
- constructor({remoteBase=defaultRemote,localBase=new URL('../data/',import.meta.url),fetcher=fetch}={}){this.remoteBase=remoteBase;this.localBase=localBase;this.fetcher=fetcher;this.cache=new Map();this.usedSnapshot=false;}
- clear(){this.cache.clear();this.usedSnapshot=false;}
+ constructor({remoteBase=defaultRemote,localBase=new URL('../data/',import.meta.url),fetcher=fetch}={}){this.remoteBase=remoteBase;this.localBase=localBase;this.fetcher=fetcher.bind(globalThis);this.failures=new Set();this.cache=new Map();this.usedSnapshot=false;}
+ clear(){this.cache.clear();this.failures.clear();this.usedSnapshot=false;}
  async read(name,fallback){
   if(this.cache.has(name))return this.cache.get(name);
   const request=(async()=>{
@@ -9,7 +9,7 @@ export class StaticContentRepository {
    for(let i=0;i<urls.length;i++){
     try{const r=await this.fetcher(urls[i],{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!r.ok)continue;const data=await r.json();if(Array.isArray(fallback)&&!Array.isArray(data))continue;if(!Array.isArray(fallback)&&(!data||typeof data!=='object'||Array.isArray(data)))continue;if(i>0&&this.remoteBase)this.usedSnapshot=true;return data;}catch{}
    }
-   this.usedSnapshot=true;return structuredClone(fallback);
+   this.usedSnapshot=true;this.failures.add(name);return structuredClone(fallback);
   })();this.cache.set(name,request);return request;
  }
  listArticles(){return this.read('posts.json',[]);}
