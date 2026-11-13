@@ -180,13 +180,20 @@
               "code": "source-unreachable",
               "message": "출처 응답 오류 (403): apnews.com",
               "bundleId": "2026-11-14-daily-three-candidates-v1"
+            },
+            {
+              "at": "2026-11-13T21:00:39.167Z",
+              "status": "held",
+              "code": "source-unreachable",
+              "message": "출처 응답 오류 (401): www.reuters.com",
+              "bundleId": "2026-11-14-news-source-retry-1"
             }
           ],
           "status": "held",
           "code": "source-unreachable",
-          "message": "출처 응답 오류 (403): apnews.com",
-          "fingerprint": "3e8d3b0a835e15a98edbe62b424df35c6cf7baabd0fb3fce05a97cb1ef8fae58",
-          "lastAttemptAt": "2026-11-13T20:59:37.894Z"
+          "message": "출처 응답 오류 (401): www.reuters.com",
+          "fingerprint": "a20b316f9491e041feca399877c1df582980846c3eb925ad6028b9d01b51cd70",
+          "lastAttemptAt": "2026-11-13T21:00:39.167Z"
         },
         "culture": {
           "attempts": [
@@ -208,7 +215,7 @@
         }
       },
       "policyVersion": "2026-11-13.1",
-      "updatedAt": "2026-11-13T20:59:37.894Z",
+      "updatedAt": "2026-11-13T21:00:39.167Z",
       "runs": [
         {
           "at": "2026-11-13T20:59:37.894Z",
@@ -228,6 +235,25 @@
               "group": "culture",
               "status": "published",
               "code": "published"
+            }
+          ]
+        },
+        {
+          "at": "2026-11-13T21:00:39.167Z",
+          "bundleId": "2026-11-14-news-source-retry-1",
+          "results": [
+            {
+              "group": "development",
+              "status": "skipped"
+            },
+            {
+              "group": "news",
+              "status": "held",
+              "code": "source-unreachable"
+            },
+            {
+              "group": "culture",
+              "status": "skipped"
             }
           ]
         }
