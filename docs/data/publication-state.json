@@ -17,13 +17,22 @@
               "code": "source-unreachable",
               "message": "출처 응답 오류 (403): www.streetinsider.com",
               "bundleId": "2026-11-13-expansion-verification"
+            },
+            {
+              "at": "2026-11-13T06:37:04.936Z",
+              "status": "published",
+              "code": "published",
+              "message": "검증 후 저장했습니다.",
+              "bundleId": "2026-11-13-news-source-retry"
             }
           ],
-          "status": "held",
-          "code": "source-unreachable",
-          "message": "출처 응답 오류 (403): www.streetinsider.com",
-          "fingerprint": "42868f4873c7441de9d6daa5f1c829723e0eb8e9e561bfd8629aabc14aa98ff5",
-          "lastAttemptAt": "2026-11-13T06:32:27.263Z"
+          "status": "published",
+          "code": "published",
+          "message": "검증 후 저장했습니다.",
+          "fingerprint": "89d4c4631f128272342ebbdf01916c53bd13cedc9680f21ee830f8bc2187259e",
+          "lastAttemptAt": "2026-11-13T06:37:04.936Z",
+          "articleId": "2026-11-13-news-euclid-dr1-foundation",
+          "publishedAt": "2026-11-13T06:00:00+09:00"
         },
         "culture": {
           "attempts": [
@@ -45,7 +54,7 @@
         }
       },
       "policyVersion": "2026-11-13.1",
-      "updatedAt": "2026-11-13T06:32:27.263Z",
+      "updatedAt": "2026-11-13T06:37:04.936Z",
       "runs": [
         {
           "at": "2026-11-13T06:32:27.263Z",
@@ -64,6 +73,25 @@
               "group": "culture",
               "status": "published",
               "code": "published"
+            }
+          ]
+        },
+        {
+          "at": "2026-11-13T06:37:04.936Z",
+          "bundleId": "2026-11-13-news-source-retry",
+          "results": [
+            {
+              "group": "development",
+              "status": "skipped"
+            },
+            {
+              "group": "news",
+              "status": "published",
+              "code": "published"
+            },
+            {
+              "group": "culture",
+              "status": "skipped"
             }
           ]
         }
