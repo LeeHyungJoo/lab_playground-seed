@@ -1,1 +1,73 @@
-{"schemaVersion":2,"days":{}}
+{
+  "schemaVersion": 2,
+  "days": {
+    "2026-11-13": {
+      "date": "2026-11-13",
+      "groups": {
+        "development": {
+          "status": "published",
+          "articleId": "legacy-2026-11-13-astral-sh-uv",
+          "publishedAt": "2026-11-12T20:56:21Z"
+        },
+        "news": {
+          "attempts": [
+            {
+              "at": "2026-11-13T06:32:27.263Z",
+              "status": "held",
+              "code": "source-unreachable",
+              "message": "출처 응답 오류 (403): www.streetinsider.com",
+              "bundleId": "2026-11-13-expansion-verification"
+            }
+          ],
+          "status": "held",
+          "code": "source-unreachable",
+          "message": "출처 응답 오류 (403): www.streetinsider.com",
+          "fingerprint": "42868f4873c7441de9d6daa5f1c829723e0eb8e9e561bfd8629aabc14aa98ff5",
+          "lastAttemptAt": "2026-11-13T06:32:27.263Z"
+        },
+        "culture": {
+          "attempts": [
+            {
+              "at": "2026-11-13T06:32:27.263Z",
+              "status": "published",
+              "code": "published",
+              "message": "검증 후 저장했습니다.",
+              "bundleId": "2026-11-13-expansion-verification"
+            }
+          ],
+          "status": "published",
+          "articleId": "2026-11-13-culture-control",
+          "publishedAt": "2026-11-13T06:00:00+09:00",
+          "code": "published",
+          "message": "검증 후 저장했습니다.",
+          "fingerprint": "42868f4873c7441de9d6daa5f1c829723e0eb8e9e561bfd8629aabc14aa98ff5",
+          "lastAttemptAt": "2026-11-13T06:32:27.263Z"
+        }
+      },
+      "policyVersion": "2026-11-13.1",
+      "updatedAt": "2026-11-13T06:32:27.263Z",
+      "runs": [
+        {
+          "at": "2026-11-13T06:32:27.263Z",
+          "bundleId": "2026-11-13-expansion-verification",
+          "results": [
+            {
+              "group": "development",
+              "status": "skipped"
+            },
+            {
+              "group": "news",
+              "status": "held",
+              "code": "source-unreachable"
+            },
+            {
+              "group": "culture",
+              "status": "published",
+              "code": "published"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
