@@ -1,0 +1,18 @@
+import {mkdir,rm,cp,readFile,writeFile,stat} from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {visiblePosts,routeURL} from '../docs/lib/catalog.mjs';
+const root=fileURLToPath(new URL('../',import.meta.url));
+const destination=path.join(root,'dist');
+await rm(destination,{recursive:true,force:true});await mkdir(destination,{recursive:true});
+await cp(path.join(root,'docs'),destination,{recursive:true});
+const manifest=JSON.parse(await readFile(path.join(root,'.openai/hosting.json'),'utf8'));
+if(manifest.project_id!=='appgprj_6aeff486af7081919bbe16188a19481d'||manifest.static?.directory!=='dist')throw Error('Unexpected Site identity or static output');
+const origin='https://morning-code-lab.flowystarfish.chatgpt.site';
+const posts=visiblePosts(JSON.parse(await readFile(path.join(root,'docs/data/posts.json'),'utf8')));
+const xmlEscape=s=>s.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;');
+const urls=[origin+'/',...['articles','albums','board'].map(view=>origin+'/'+routeURL({view})),...posts.map(p=>origin+'/'+routeURL({view:'articles',article:p.id}))];
+await writeFile(path.join(destination,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(url=>`<url><loc>${xmlEscape(url)}</loc></url>`).join('')}</urlset>`);
+await writeFile(path.join(destination,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`);
+for(const file of ['index.html','app.mjs','assets/styles.css','assets/og-image.png','lib/catalog.mjs','lib/repository.mjs','lib/views.mjs','data/posts.json','data/albums.json','data/board.json','data/editorial-policy.json','automation/editorial-guide.md'])await stat(path.join(destination,file));
+console.log(`Static build complete: ${posts.length} published articles. Output: dist/`);

@@ -173,3 +173,11 @@ temp/
 
 # Local configuration
 *.local
+
+# Local build, editorial transactions and inference cache
+/dist/
+/.publication.lock
+/.publication-report.json
+.cache/
+__pycache__/
+*.tmp-*

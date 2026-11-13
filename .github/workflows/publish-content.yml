@@ -1,0 +1,40 @@
+name: Validate and publish daily articles
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/inbox/**'
+      - 'scripts/**'
+      - 'docs/lib/**'
+      - 'docs/data/editorial-policy.json'
+      - '.github/workflows/publish-content.yml'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Optional Korean publication date (YYYY-MM-DD); blank means today'
+        required: false
+        type: string
+permissions:
+  contents: write
+concurrency:
+  group: jininsa-publication-main
+  cancel-in-progress: false
+jobs:
+  validate-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test policy, compatibility and views
+        run: npm test
+      - name: Build static site
+        run: npm run build
+      - name: Validate candidates and commit posts with publication ledger
+        env:
+          PUBLICATION_DATE: ${{ inputs.date }}
+        run: node scripts/publish-git.mjs

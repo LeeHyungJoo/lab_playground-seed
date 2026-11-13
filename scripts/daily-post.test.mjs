@@ -6,7 +6,7 @@ test('exclude repeats, forks, archives and select by stars',()=>{const r=(name,s
 
 test('recovery schedules skip completed days but allow missing days and test-only days',()=>{
  const today='2026-11-09';
- assert.equal(hasDailyPost([{date:today,kind:'daily'}],today),true);
+ assert.equal(hasDailyPost([{date:today,kind:'daily',category:'AI'}],today),true);
  assert.equal(hasDailyPost([{date:'2026-11-08',kind:'daily'}],today),false);
  assert.equal(hasDailyPost([{date:today,kind:'test'},{date:today,kind:'initial'}],today),false);
  assert.equal(hasDailyPost([],today),false);
