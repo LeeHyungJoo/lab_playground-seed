@@ -95,7 +95,7 @@ test('malformed bundle and invalid stored data cannot overwrite articles; failed
   const pp=path.join(base,'docs/data/posts.json'),sp=path.join(base,'docs/data/publication-state.json');const old=[dev({date:'2026-11-12'})];
   await fs.writeFile(pp,JSON.stringify(old));await fs.writeFile(sp,JSON.stringify({schemaVersion:2,days:{}}));
   await fs.writeFile(path.join(base,`content/inbox/${day}.json`),'{invalid');
-  const result=await publishFiles({base,day,now,checkSource,settings:testPolicy});assert.deepEqual(JSON.parse(await fs.readFile(pp,'utf8')),old);assert.equal(result.results[0].status,'failed');
+  const result=await publishFiles({base,day,now,checkSource,settings:testPolicy});assert.deepEqual(JSON.parse(await fs.readFile(pp,'utf8')),old);assert.equal(result.results.find(x=>x.group==='news').status,'failed');
   const beforeP=await fs.readFile(pp,'utf8'),beforeS=await fs.readFile(sp,'utf8');let renames=0;
   await assert.rejects(()=>writeDataPair(pp,sp,[],{}, {ops:{...fs,rename:async(...args)=>{renames++;if(renames===2)throw Error('simulated second rename failure');return fs.rename(...args);}}}),/second rename/);
   assert.equal(await fs.readFile(pp,'utf8'),beforeP);assert.equal(await fs.readFile(sp,'utf8'),beforeS);
