@@ -80,7 +80,7 @@ test('short, unsourced, wrong-rotation and untrusted-health articles cannot publ
  await assert.rejects(()=>validateArticle(life('philosophy',day,{content:[{heading:'짧은 글',paragraphs:['너무 짧습니다.']},{heading:'둘',paragraphs:['짧습니다.']},{heading:'셋',paragraphs:['짧습니다.']}]}),[],options),e=>e.code==='reading-length');
  await assert.rejects(()=>validateArticle(life('economy'),[],options),e=>e.code==='rotation-mismatch');
  const healthDay='2026-11-15';const healthNow=new Date('2026-11-15T07:00Z');
- await assert.rejects(()=>validateArticle(life('health',healthDay,{sources:[source('random-blog.org',{verifiedAt:healthNow.toISOString()})]}),[],{day:healthDay,now:healthNow,checkSource}),e=>e.code==='untrusted-health-source');
+ await assert.rejects(()=>validateArticle(life('health',healthDay,{sources:[source('random-blog.org',{verifiedAt:healthNow.toISOString()})]}),[],{day:healthDay,now:healthNow,checkSource,settings:testPolicy}),e=>e.code==='untrusted-health-source');
  await assert.rejects(()=>validateArticle(life('philosophy',day,{sources:[]}),[],options),e=>e.code==='missing-sources');
 });
 test('source checking rejects local/private targets and validates redirects without following them blindly',async()=>{
@@ -95,11 +95,11 @@ test('malformed bundle and invalid stored data cannot overwrite articles; failed
   const pp=path.join(base,'docs/data/posts.json'),sp=path.join(base,'docs/data/publication-state.json');const old=[dev({date:'2026-11-12'})];
   await fs.writeFile(pp,JSON.stringify(old));await fs.writeFile(sp,JSON.stringify({schemaVersion:2,days:{}}));
   await fs.writeFile(path.join(base,`content/inbox/${day}.json`),'{invalid');
-  const result=await publishFiles({base,day,now,checkSource});assert.deepEqual(JSON.parse(await fs.readFile(pp,'utf8')),old);assert.equal(result.results[0].status,'failed');
+  const result=await publishFiles({base,day,now,checkSource,settings:testPolicy});assert.deepEqual(JSON.parse(await fs.readFile(pp,'utf8')),old);assert.equal(result.results[0].status,'failed');
   const beforeP=await fs.readFile(pp,'utf8'),beforeS=await fs.readFile(sp,'utf8');let renames=0;
   await assert.rejects(()=>writeDataPair(pp,sp,[],{}, {ops:{...fs,rename:async(...args)=>{renames++;if(renames===2)throw Error('simulated second rename failure');return fs.rename(...args);}}}),/second rename/);
   assert.equal(await fs.readFile(pp,'utf8'),beforeP);assert.equal(await fs.readFile(sp,'utf8'),beforeS);
-  await fs.writeFile(pp,'{"broken":"not an array"}');await assert.rejects(()=>publishFiles({base,day,now,checkSource}),e=>e.code==='corrupt-store');assert.equal(await fs.readFile(pp,'utf8'),'{"broken":"not an array"}');
+  await fs.writeFile(pp,'{"broken":"not an array"}');await assert.rejects(()=>publishFiles({base,day,now,checkSource,settings:testPolicy}),e=>e.code==='corrupt-store');assert.equal(await fs.readFile(pp,'utf8'),'{"broken":"not an array"}');
   await fs.access(path.join(base,'.publication.lock')).then(()=>assert.fail('Lock leaked'),()=>{});
  }finally{await fs.rm(base,{recursive:true,force:true});}
 });
@@ -111,10 +111,10 @@ test('explicit news hold records an auditable reason without fabricating a post'
 test('financial statistics need an as-of date and an included source; trusted health can publish on its turn',async()=>{
  const economyDay='2026-11-14',economyNow=new Date('2026-11-14T07:00Z');
  const economy=life('economy',economyDay,{sources:[source('bank.org',{verifiedAt:economyNow.toISOString()})],statistics:[{value:'3%',asOf:'2026-11-14',sourceUrl:'https://missing.org/stat'}]});
- await assert.rejects(()=>validateArticle(economy,[],{day:economyDay,now:economyNow,checkSource}),e=>e.code==='unsourced-statistic');
+ await assert.rejects(()=>validateArticle(economy,[],{day:economyDay,now:economyNow,checkSource,settings:testPolicy}),e=>e.code==='unsourced-statistic');
  const healthDay='2026-11-15',healthNow=new Date('2026-11-15T07:00Z');
  const health=life('health',healthDay,{sources:[source('who.int',{verifiedAt:healthNow.toISOString()})]});
- assert.equal((await validateArticle(health,[],{day:healthDay,now:healthNow,checkSource})).category,'health');
+ assert.equal((await validateArticle(health,[],{day:healthDay,now:healthNow,checkSource,settings:testPolicy})).category,'health');
 });
 test('future visibility cannot extend the news 72-hour window beyond the actual 06:00 release',async()=>{
  const early=new Date('2026-11-12T20:58Z');
