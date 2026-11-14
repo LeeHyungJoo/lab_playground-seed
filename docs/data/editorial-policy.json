@@ -1,24 +1,113 @@
 {
   "schemaVersion": 2,
-  "version": "2026-11-13.1",
+  "version": "2026-11-14.1",
   "timezone": "Asia/Seoul",
   "publishTime": "06:00:00",
-  "dailyGroups": ["development", "news", "culture"],
-  "cultureRotation": ["philosophy", "economy", "health"],
+  "cultureRotation": [
+    "philosophy",
+    "economy",
+    "health"
+  ],
   "cultureAnchorDate": "2026-11-13",
   "newsMaxAgeHours": 72,
-  "readingMinutes": {"news": [4, 5], "philosophy": [3, 4], "economy": [3, 4], "health": [3, 4]},
+  "readingMinutes": {
+    "news": [
+      4,
+      5
+    ],
+    "philosophy": [
+      3,
+      4
+    ],
+    "economy": [
+      3,
+      4
+    ],
+    "health": [
+      3,
+      4
+    ]
+  },
   "charactersPerMinute": 500,
   "newsMinIndependentSources": 2,
-  "healthSourceDomains": ["who.int", "cdc.gov", "nih.gov", "nhs.uk", "mayoclinic.org", "kdca.go.kr", "health.kdca.go.kr", "cochranelibrary.com"],
+  "healthSourceDomains": [
+    "who.int",
+    "cdc.gov",
+    "nih.gov",
+    "nhs.uk",
+    "mayoclinic.org",
+    "kdca.go.kr",
+    "health.kdca.go.kr",
+    "cochranelibrary.com"
+  ],
   "conceptAliases": {
-    "dichotomyofcontrol": "control", "통제의이분법": "control", "통제할수있는것과없는것": "control",
-    "compoundinterest": "compound-interest", "복리": "compound-interest",
-    "sleepduration": "sleep-duration", "적정수면시간": "sleep-duration"
+    "dichotomyofcontrol": "control",
+    "통제의이분법": "control",
+    "통제할수있는것과없는것": "control",
+    "compoundinterest": "compound-interest",
+    "복리": "compound-interest",
+    "sleepduration": "sleep-duration",
+    "적정수면시간": "sleep-duration"
   },
   "topicSuggestions": {
-    "philosophy": [{"topicKey":"philosophy:epictetus:control","concept":"control"},{"topicKey":"philosophy:aristotle:virtue-habit","concept":"virtue-habit"},{"topicKey":"philosophy:sartre:responsibility","concept":"responsibility"}],
-    "economy": [{"topicKey":"economy:inflation:purchasing-power","concept":"purchasing-power"},{"topicKey":"economy:interest:compound-interest","concept":"compound-interest"},{"topicKey":"economy:bonds:price-yield","concept":"price-yield"}],
-    "health": [{"topicKey":"health:sleep:sleep-duration","concept":"sleep-duration"},{"topicKey":"health:exercise:sedentary-breaks","concept":"sedentary-breaks"},{"topicKey":"health:nutrition:dietary-fibre","concept":"dietary-fibre"}]
-  }
+    "philosophy": [
+      {
+        "topicKey": "philosophy:epictetus:control",
+        "concept": "control"
+      },
+      {
+        "topicKey": "philosophy:aristotle:virtue-habit",
+        "concept": "virtue-habit"
+      },
+      {
+        "topicKey": "philosophy:sartre:responsibility",
+        "concept": "responsibility"
+      }
+    ],
+    "economy": [
+      {
+        "topicKey": "economy:inflation:purchasing-power",
+        "concept": "purchasing-power"
+      },
+      {
+        "topicKey": "economy:interest:compound-interest",
+        "concept": "compound-interest"
+      },
+      {
+        "topicKey": "economy:bonds:price-yield",
+        "concept": "price-yield"
+      }
+    ],
+    "health": [
+      {
+        "topicKey": "health:sleep:sleep-duration",
+        "concept": "sleep-duration"
+      },
+      {
+        "topicKey": "health:exercise:sedentary-breaks",
+        "concept": "sedentary-breaks"
+      },
+      {
+        "topicKey": "health:nutrition:dietary-fibre",
+        "concept": "dietary-fibre"
+      }
+    ]
+  },
+  "weekdayNumbering": "sun0",
+  "publicationSchedule": {
+    "development": [
+      1,
+      4
+    ],
+    "news": [
+      1,
+      3,
+      5
+    ],
+    "culture": [
+      2,
+      5
+    ]
+  },
+  "cultureRotationMode": "scheduled-publication-slots"
 }

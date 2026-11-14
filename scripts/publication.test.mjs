@@ -3,11 +3,13 @@ import assert from 'node:assert/strict';
 import * as fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import {policy,dayInSeoul,cultureCategory,planDay,publishBundle,validateArticle,duplicateReason,verifySourceURL} from './publication.mjs';
+import {policy,dayInSeoul,scheduledGroups,cultureCategory,planDay,publishBundle,validateArticle,duplicateReason,verifySourceURL} from './publication.mjs';
 import {publishFiles,writeDataPair} from './publication-cli.mjs';
 import {hasPublication} from '../docs/lib/catalog.mjs';
 const day='2026-11-13',now=new Date('2026-11-13T07:00:00Z');
 const verifiedAt=now.toISOString();const checkSource=async()=>({});
+const allDays=[0,1,2,3,4,5,6];
+const testPolicy={...policy,publicationSchedule:{development:allDays,news:allDays,culture:allDays}};
 const source=(host='example-source.org',extra={})=>({title:'검증한 공식 자료',url:`https://${host}/article`,verifiedAt,type:'primary',publishedAt:'2026-11-12',...extra});
 function life(category='philosophy',date=day,extra={}) {
  const count=category==='news'?58:38;
@@ -16,12 +18,20 @@ function life(category='philosophy',date=day,extra={}) {
 }
 const dev=extra=>({category:'AI',date:day,title:'개발 프로젝트 소개',summary:'개발자에게 도움이 되는 도구입니다.',highlights:['첫째 기능','둘째 기능','셋째 기능'],why:'공식 자료에서 기능과 조건을 확인하세요.',repository:'owner/new-project',url:'https://github.com/owner/new-project',...extra});
 const bundle=(drafts=[],holds=[])=>({schemaVersion:2,policyVersion:policy.version,date:day,id:'test-bundle',drafts,holds});
-const options={day,now,checkSource};
-test('Korean dates and calendar rotation remain stable across retries and year boundaries',()=>{
+const options={day,now,checkSource,settings:testPolicy};
+test('Korean dates, weekday schedules and culture publication-slot rotation remain stable',()=>{
  assert.equal(dayInSeoul(new Date('2026-11-12T15:00:00Z')),day);
- assert.equal(cultureCategory(day),'philosophy');assert.equal(cultureCategory('2026-11-14'),'economy');assert.equal(cultureCategory('2026-11-15'),'health');assert.equal(cultureCategory('2026-11-16'),'philosophy');
+ assert.deepEqual(scheduledGroups('2026-11-16'),['development','news']);
+ assert.deepEqual(scheduledGroups('2026-11-17'),['culture']);
+ assert.deepEqual(scheduledGroups('2026-11-18'),['news']);
+ assert.deepEqual(scheduledGroups('2026-11-19'),['development']);
+ assert.deepEqual(scheduledGroups('2026-11-20'),['news','culture']);
+ assert.deepEqual(scheduledGroups('2026-11-21'),[]);
+ assert.equal(cultureCategory('2026-11-13'),'philosophy');
+ assert.equal(cultureCategory('2026-11-17'),'economy');
+ assert.equal(cultureCategory('2026-11-20'),'health');
+ assert.equal(cultureCategory('2026-11-24'),'philosophy');
  assert.throws(()=>cultureCategory('2026-02-30'));
- assert.equal(cultureCategory('2027-01-01'),cultureCategory('2027-01-04'));
 });
 test('three independent slots publish once and preserve the exact legacy article objects',async()=>{
  const legacy={...dev({repository:'legacy/project',url:'https://github.com/legacy/project',date:'2026-11-12',title:'기존 글',summary:'서로 다른 자료를 비교하는 과학 연구 플랫폼을 소개한 이전 기록입니다.',kind:'daily'}),legacyExtra:'preserve'};

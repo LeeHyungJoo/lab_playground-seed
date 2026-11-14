@@ -3,18 +3,29 @@ import policy from '../docs/data/editorial-policy.json' with {type:'json'};
 import {CATEGORIES,categoryId,dayInSeoul,publicationGroup,hasPublication,isDaily,stableId,normalizeText,readingMinutes} from '../docs/lib/catalog.mjs';
 export {policy,dayInSeoul};
 export const GROUPS=['development','news','culture'];
+export function scheduledGroups(day,settings=policy) {
+ if(!validDay(day))fail('invalid-date','유효한 한국 날짜가 필요합니다.');
+ const weekday=new Date(day+'T00:00:00Z').getUTCDay();
+ return GROUPS.filter(group=>(settings.publicationSchedule?.[group]||[]).includes(weekday));
+}
 export class PublicationError extends Error {constructor(code,message){super(message);this.code=code;}}
 const fail=(code,message)=>{throw new PublicationError(code,message);};
 export const validDay=value=>typeof value==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(value)&&Number.isFinite(Date.parse(value))&&new Date(value+'T00:00:00Z').toISOString().slice(0,10)===value;
 export function cultureCategory(day,settings=policy) {
  if(!validDay(day))fail('invalid-date','유효한 한국 날짜가 필요합니다.');
- const offset=Math.round((Date.parse(day+'T00:00:00Z')-Date.parse(settings.cultureAnchorDate+'T00:00:00Z'))/86400000);
+ const anchor=Date.parse(settings.cultureAnchorDate+'T00:00:00Z'),target=Date.parse(day+'T00:00:00Z');
+ const schedule=settings.publicationSchedule?.culture||[];
+ let offset=0;
+ if(target>=anchor)for(let at=anchor;at<target;at+=86400000)if(schedule.includes(new Date(at).getUTCDay()))offset++;
+ else for(let at=anchor-86400000;at>=target;at-=86400000)if(schedule.includes(new Date(at).getUTCDay()))offset--;
  return settings.cultureRotation[((offset%settings.cultureRotation.length)+settings.cultureRotation.length)%settings.cultureRotation.length];
 }
 export function planDay(posts,day=dayInSeoul(),state={},settings=policy) {
- return {date:day,timezone:settings.timezone,policyVersion:settings.version,cultureCategory:cultureCategory(day,settings),groups:Object.fromEntries(GROUPS.map(group=>{
+ const due=new Set(scheduledGroups(day,settings));
+ return {date:day,timezone:settings.timezone,policyVersion:settings.version,scheduledGroups:[...due],cultureCategory:due.has('culture')?cultureCategory(day,settings):null,groups:Object.fromEntries(GROUPS.map(group=>{
   const existing=posts.filter(p=>p.date===day&&isDaily(p)&&publicationGroup(p)===group);
-  return [group,{status:existing.length?'published':state.days?.[day]?.groups?.[group]?.status||'missing',count:existing.length,articleId:existing[0]?stableId(existing[0]):null,needsGeneration:!existing.length}];
+  const scheduled=due.has(group);
+  return [group,{scheduled,status:existing.length?'published':scheduled?(state.days?.[day]?.groups?.[group]?.status||'missing'):'not-scheduled',count:existing.length,articleId:existing[0]?stableId(existing[0]):null,needsGeneration:scheduled&&!existing.length}];
  }))};
 }
 function moment(value) {
@@ -86,6 +97,7 @@ export async function validateArticle(draft,posts,{day=dayInSeoul(),now=new Date
  const p=structuredClone(draft);const category=categoryId(p.category);
  if(!category)fail('invalid-category','허용되지 않은 카테고리입니다.');
  const group=CATEGORIES[category].publicationGroup;
+ if(!scheduledGroups(day,settings).includes(group))fail('schedule-mismatch',`${group} 그룹은 ${day}에 발행하지 않습니다.`);
  if(p.publicationGroup&&p.publicationGroup!==group)fail('invalid-group','카테고리와 발행 그룹이 일치하지 않습니다.');
  if(!validDay(p.date)||p.date!==day)fail('wrong-day','대상 한국 날짜와 아티클 날짜가 다릅니다.');
  if(!['draft','published',undefined].includes(p.status))fail('invalid-status','발행 후보 상태가 아닙니다.');
@@ -141,9 +153,11 @@ export async function publishBundle(originalPosts,originalState,bundle,{day=dayI
  let posts=structuredClone(originalPosts);const state=structuredClone(originalState||{schemaVersion:2,days:{}});state.schemaVersion=2;state.days ||= {};
  const previous=state.days[day]||{date:day,groups:{}};const record={...previous,policyVersion:settings.version,groups:{...previous.groups}};const results=[];
  const fingerprint=createHash('sha256').update(JSON.stringify(bundle)).digest('hex');
+ const due=new Set(scheduledGroups(day,settings));
  for(const group of GROUPS){
   const existing=posts.find(p=>p.date===day&&isDaily(p)&&publicationGroup(p)===group);
   if(existing){record.groups[group]={...record.groups[group],status:'published',articleId:stableId(existing),publishedAt:existing.publishedAt||existing.generatedAt};results.push({group,status:'skipped',articleId:stableId(existing)});continue;}
+  if(!due.has(group)){results.push({group,status:'skipped',code:'not-scheduled'});continue;}
   const candidates=bundle.drafts.filter(p=>publicationGroup(p)===group||p.publicationGroup===group);
   const hold=(bundle.holds||[]).find(p=>p.group===group);
   const old=record.groups[group]||{attempts:[]};
@@ -158,5 +172,5 @@ export async function publishBundle(originalPosts,originalState,bundle,{day=dayI
   record.groups[group]={...old,...outcome,fingerprint,lastAttemptAt:now.toISOString(),attempts:[...(old.attempts||[]),attempt]};results.push({group,...outcome});
  }
  record.updatedAt=results.some(r=>!r.replayed&&r.status!=='skipped')?now.toISOString():previous.updatedAt||now.toISOString();record.runs=[...(previous.runs||[]),{at:now.toISOString(),bundleId:bundle.id||fingerprint.slice(0,16),results:results.map(r=>({group:r.group,status:r.status,code:r.code}))}];state.days[day]=record;
- return {posts,state,results,complete:GROUPS.every(group=>hasPublication(posts,day,group))};
+ return {posts,state,results,complete:scheduledGroups(day,settings).every(group=>hasPublication(posts,day,group))};
 }
