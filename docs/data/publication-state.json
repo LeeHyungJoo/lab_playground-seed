@@ -286,6 +286,72 @@
           ]
         }
       ]
+    },
+    "2026-11-16": {
+      "date": "2026-11-16",
+      "groups": {
+        "development": {
+          "attempts": [
+            {
+              "at": "2026-11-15T21:00:46.690Z",
+              "status": "published",
+              "code": "published",
+              "message": "검증 후 저장했습니다.",
+              "bundleId": "2026-11-16-monday-development-news-v1"
+            }
+          ],
+          "status": "published",
+          "articleId": "2026-11-16-development-agent-skills",
+          "publishedAt": "2026-11-16T06:00:00+09:00",
+          "code": "published",
+          "message": "검증 후 저장했습니다.",
+          "fingerprint": "44b084d6e6dd44db7a0cb8f9540e1730605f17a373f26456abd8d4549649782b",
+          "lastAttemptAt": "2026-11-15T21:00:46.690Z"
+        },
+        "news": {
+          "attempts": [
+            {
+              "at": "2026-11-15T21:00:46.690Z",
+              "status": "published",
+              "code": "published",
+              "message": "검증 후 저장했습니다.",
+              "bundleId": "2026-11-16-monday-development-news-v1"
+            }
+          ],
+          "status": "published",
+          "articleId": "2026-11-16-news-kadena-f15ex-arrival",
+          "publishedAt": "2026-11-16T06:00:00+09:00",
+          "code": "published",
+          "message": "검증 후 저장했습니다.",
+          "fingerprint": "44b084d6e6dd44db7a0cb8f9540e1730605f17a373f26456abd8d4549649782b",
+          "lastAttemptAt": "2026-11-15T21:00:46.690Z"
+        }
+      },
+      "policyVersion": "2026-11-14.1",
+      "updatedAt": "2026-11-15T21:00:46.690Z",
+      "runs": [
+        {
+          "at": "2026-11-15T21:00:46.690Z",
+          "bundleId": "2026-11-16-monday-development-news-v1",
+          "results": [
+            {
+              "group": "development",
+              "status": "published",
+              "code": "published"
+            },
+            {
+              "group": "news",
+              "status": "published",
+              "code": "published"
+            },
+            {
+              "group": "culture",
+              "status": "skipped",
+              "code": "not-scheduled"
+            }
+          ]
+        }
+      ]
     }
   }
 }
