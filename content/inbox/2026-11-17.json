@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "policyVersion": "2026-11-14.1",
   "date": "2026-11-17",
-  "id": "2026-11-17-culture-economy-v1",
+  "id": "2026-11-17-culture-economy-retry-1",
   "drafts": [
     {
       "schemaVersion": 2,
@@ -21,7 +21,7 @@
       "group": "life",
       "publicationGroup": "culture",
       "provider": "cloud-agent",
-      "generatedAt": "2026-11-17T06:05:20+09:00",
+      "generatedAt": "2026-11-17T06:07:20+09:00",
       "topicKey": "economy:inflation:purchasing-power",
       "coreConcept": "소비자물가지수의 평균 물가와 가구별 지출구조·소득 변화를 구분해 실질 구매력을 판단하는 원리",
       "keywords": [
@@ -44,7 +44,7 @@
         {
           "heading": "구매력은 돈의 액수가 아니라 살 수 있는 양이다",
           "paragraphs": [
-            "통장에 적힌 급여나 저축액은 명목금액이다. 구매력은 그 돈으로 실제 상품과 서비스를 얼마나 살 수 있는지를 뜻한다. IMF는 명목소득이 가격만큼 오르지 않으면 물가를 반영한 실질소득과 구매력이 감소한다고 설명한다. 급여가 그대로인데 식비, 교통비와 주거비가 전반적으로 오르면 숫자로 표시된 월급은 같아도 선택할 수 있는 소비의 양은 줄어든다.[2]",
+            "통장에 적힌 급여나 저축액은 명목금액이다. 구매력은 그 돈으로 실제 상품과 서비스를 얼마나 살 수 있는지를 뜻한다. 영란은행은 물가가 오르면 같은 돈으로 살 수 있는 상품과 서비스가 줄어 구매력이 낮아진다고 설명한다. 급여가 그대로인데 식비, 교통비와 주거비가 전반적으로 오르면 숫자로 표시된 월급은 같아도 선택할 수 있는 소비의 양은 줄어든다.[2]",
             "반대로 소득이 올랐다고 언제나 생활이 나아진 것도 아니다. 소득 증가율이 물가 상승보다 낮다면 명목소득은 커졌지만 실질 구매력은 약해질 수 있다. 그래서 연봉이나 예금 잔액을 전년도와 비교할 때에는 금액의 증가만 보지 말고 같은 생활수준을 유지하는 데 드는 비용이 얼마나 달라졌는지 함께 확인해야 한다."
           ]
         },
@@ -58,7 +58,7 @@
         {
           "heading": "물가지수도 완벽한 생활비 계산서는 아니다",
           "paragraphs": [
-            "소비자물가지수의 품목과 가중치는 변화하는 소비 습관을 반영하도록 조정되지만, 모든 사람의 선택과 품질 변화를 완벽히 담기는 어렵다. 영란은행도 물가 계산기는 구매력 변화를 살펴보는 대략적인 참고 도구이며, 장기간 비교에서는 상품과 서비스의 성격 자체가 달라졌다는 점을 유의해야 한다고 설명한다.[3]",
+            "소비자물가지수의 품목과 가중치는 변화하는 소비 습관을 반영하도록 조정되지만, 모든 사람의 선택과 품질 변화를 완벽히 담기는 어렵다. 영란은행도 물가 계산기는 구매력 변화를 살펴보는 대략적인 참고 도구이며, 장기간 비교에서는 상품과 서비스의 성격 자체가 달라졌다는 점을 유의해야 한다고 설명한다.[2]",
             "새 휴대전화가 이전보다 비싸면서 성능도 좋아졌다면 가격 차이 전부를 순수한 물가 상승으로 보기 어렵다. 반대로 통계상 평균 가격 상승이 완만해도 자신이 줄이기 어려운 필수지출이 빠르게 오르면 생활 부담은 더 클 수 있다. 평균 지수는 경제 전체의 방향을 보여 주는 지도이고, 개인 예산은 내가 실제로 걷는 경로에 가깝다."
           ]
         },
@@ -76,21 +76,14 @@
           "url": "https://www.ecb.europa.eu/ecb-and-you/explainers/tell-me-more/html/what_is_inflation.en.html",
           "publisher": "European Central Bank",
           "type": "reference",
-          "verifiedAt": "2026-11-17T06:05:20+09:00"
-        },
-        {
-          "title": "Inflation: Prices on the Rise",
-          "url": "https://www.imf.org/en/publications/fandd/issues/series/back-to-basics/inflation",
-          "publisher": "International Monetary Fund",
-          "type": "reference",
-          "verifiedAt": "2026-11-17T06:05:20+09:00"
+          "verifiedAt": "2026-11-17T06:07:20+09:00"
         },
         {
           "title": "Inflation calculator",
           "url": "https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator",
           "publisher": "Bank of England",
           "type": "reference",
-          "verifiedAt": "2026-11-17T06:05:20+09:00"
+          "verifiedAt": "2026-11-17T06:07:20+09:00"
         }
       ]
     }
