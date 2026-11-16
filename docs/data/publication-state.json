@@ -352,6 +352,52 @@
           ]
         }
       ]
+    },
+    "2026-11-17": {
+      "date": "2026-11-17",
+      "groups": {
+        "culture": {
+          "attempts": [
+            {
+              "at": "2026-11-16T21:06:05.601Z",
+              "status": "failed",
+              "code": "source-unreachable",
+              "message": "출처 응답 오류 (403): www.imf.org",
+              "bundleId": "2026-11-17-culture-economy-v1"
+            }
+          ],
+          "status": "failed",
+          "code": "source-unreachable",
+          "message": "출처 응답 오류 (403): www.imf.org",
+          "fingerprint": "ee032d2a10c7612dd6f8d8655201bed3fbbfea1b792171c5d2250a598b9a5207",
+          "lastAttemptAt": "2026-11-16T21:06:05.601Z"
+        }
+      },
+      "policyVersion": "2026-11-14.1",
+      "updatedAt": "2026-11-16T21:06:05.601Z",
+      "runs": [
+        {
+          "at": "2026-11-16T21:06:05.601Z",
+          "bundleId": "2026-11-17-culture-economy-v1",
+          "results": [
+            {
+              "group": "development",
+              "status": "skipped",
+              "code": "not-scheduled"
+            },
+            {
+              "group": "news",
+              "status": "skipped",
+              "code": "not-scheduled"
+            },
+            {
+              "group": "culture",
+              "status": "failed",
+              "code": "source-unreachable"
+            }
+          ]
+        }
+      ]
     }
   }
 }
