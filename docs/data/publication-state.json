@@ -364,17 +364,26 @@
               "code": "source-unreachable",
               "message": "출처 응답 오류 (403): www.imf.org",
               "bundleId": "2026-11-17-culture-economy-v1"
+            },
+            {
+              "at": "2026-11-16T21:06:45.229Z",
+              "status": "published",
+              "code": "published",
+              "message": "검증 후 저장했습니다.",
+              "bundleId": "2026-11-17-culture-economy-retry-1"
             }
           ],
-          "status": "failed",
-          "code": "source-unreachable",
-          "message": "출처 응답 오류 (403): www.imf.org",
-          "fingerprint": "ee032d2a10c7612dd6f8d8655201bed3fbbfea1b792171c5d2250a598b9a5207",
-          "lastAttemptAt": "2026-11-16T21:06:05.601Z"
+          "status": "published",
+          "code": "published",
+          "message": "검증 후 저장했습니다.",
+          "fingerprint": "41e2de6738097ee733fc0e4790ab74e9390ab5058df6afc92102d7b82148badd",
+          "lastAttemptAt": "2026-11-16T21:06:45.229Z",
+          "articleId": "2026-11-17-culture-inflation-purchasing-power",
+          "publishedAt": "2026-11-17T06:00:00+09:00"
         }
       },
       "policyVersion": "2026-11-14.1",
-      "updatedAt": "2026-11-16T21:06:05.601Z",
+      "updatedAt": "2026-11-16T21:06:45.229Z",
       "runs": [
         {
           "at": "2026-11-16T21:06:05.601Z",
@@ -394,6 +403,27 @@
               "group": "culture",
               "status": "failed",
               "code": "source-unreachable"
+            }
+          ]
+        },
+        {
+          "at": "2026-11-16T21:06:45.229Z",
+          "bundleId": "2026-11-17-culture-economy-retry-1",
+          "results": [
+            {
+              "group": "development",
+              "status": "skipped",
+              "code": "not-scheduled"
+            },
+            {
+              "group": "news",
+              "status": "skipped",
+              "code": "not-scheduled"
+            },
+            {
+              "group": "culture",
+              "status": "published",
+              "code": "published"
             }
           ]
         }
