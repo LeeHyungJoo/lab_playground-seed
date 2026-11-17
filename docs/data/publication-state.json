@@ -447,17 +447,26 @@
               "code": "source-unreachable",
               "message": "출처 응답 오류 (403): www.unep.org",
               "bundleId": "2026-11-18-wednesday-news-retry-1"
+            },
+            {
+              "at": "2026-11-17T21:05:06.474Z",
+              "status": "published",
+              "code": "published",
+              "message": "검증 후 저장했습니다.",
+              "bundleId": "2026-11-18-wednesday-news-retry-2"
             }
           ],
-          "status": "held",
-          "code": "source-unreachable",
-          "message": "출처 응답 오류 (403): www.unep.org",
-          "fingerprint": "08b592c4e66bc1b82b7da99534119d5d195a7f60a594dc3540f1e12d1bc88596",
-          "lastAttemptAt": "2026-11-17T21:04:09.430Z"
+          "status": "published",
+          "code": "published",
+          "message": "검증 후 저장했습니다.",
+          "fingerprint": "aa076f3d6fab2faaf4dde354fbe1dac267f1462cc94ccdc27e2a2b6c23295287",
+          "lastAttemptAt": "2026-11-17T21:05:06.474Z",
+          "articleId": "2026-11-18-news-unep-who-endocrine-disruptors-report",
+          "publishedAt": "2026-11-18T06:00:00+09:00"
         }
       },
       "policyVersion": "2026-11-14.1",
-      "updatedAt": "2026-11-17T21:04:09.430Z",
+      "updatedAt": "2026-11-17T21:05:06.474Z",
       "runs": [
         {
           "at": "2026-11-17T21:02:37.504Z",
@@ -493,6 +502,27 @@
               "group": "news",
               "status": "held",
               "code": "source-unreachable"
+            },
+            {
+              "group": "culture",
+              "status": "skipped",
+              "code": "not-scheduled"
+            }
+          ]
+        },
+        {
+          "at": "2026-11-17T21:05:06.474Z",
+          "bundleId": "2026-11-18-wednesday-news-retry-2",
+          "results": [
+            {
+              "group": "development",
+              "status": "skipped",
+              "code": "not-scheduled"
+            },
+            {
+              "group": "news",
+              "status": "published",
+              "code": "published"
             },
             {
               "group": "culture",
