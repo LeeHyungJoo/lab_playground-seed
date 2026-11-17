@@ -440,21 +440,49 @@
               "code": "source-unreachable",
               "message": "출처 응답 오류 (403): apnews.com",
               "bundleId": "2026-11-18-wednesday-news-v1"
+            },
+            {
+              "at": "2026-11-17T21:04:09.430Z",
+              "status": "held",
+              "code": "source-unreachable",
+              "message": "출처 응답 오류 (403): www.unep.org",
+              "bundleId": "2026-11-18-wednesday-news-retry-1"
             }
           ],
           "status": "held",
           "code": "source-unreachable",
-          "message": "출처 응답 오류 (403): apnews.com",
-          "fingerprint": "445f5afbbd21d225c33a87db81e8ad43bb3c569261b2a4dc9ae6c5d364e37a91",
-          "lastAttemptAt": "2026-11-17T21:02:37.504Z"
+          "message": "출처 응답 오류 (403): www.unep.org",
+          "fingerprint": "08b592c4e66bc1b82b7da99534119d5d195a7f60a594dc3540f1e12d1bc88596",
+          "lastAttemptAt": "2026-11-17T21:04:09.430Z"
         }
       },
       "policyVersion": "2026-11-14.1",
-      "updatedAt": "2026-11-17T21:02:37.504Z",
+      "updatedAt": "2026-11-17T21:04:09.430Z",
       "runs": [
         {
           "at": "2026-11-17T21:02:37.504Z",
           "bundleId": "2026-11-18-wednesday-news-v1",
+          "results": [
+            {
+              "group": "development",
+              "status": "skipped",
+              "code": "not-scheduled"
+            },
+            {
+              "group": "news",
+              "status": "held",
+              "code": "source-unreachable"
+            },
+            {
+              "group": "culture",
+              "status": "skipped",
+              "code": "not-scheduled"
+            }
+          ]
+        },
+        {
+          "at": "2026-11-17T21:04:09.430Z",
+          "bundleId": "2026-11-18-wednesday-news-retry-1",
           "results": [
             {
               "group": "development",
