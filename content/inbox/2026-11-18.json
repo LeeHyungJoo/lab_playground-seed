@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "policyVersion": "2026-11-14.1",
   "date": "2026-11-18",
-  "id": "2026-11-18-wednesday-news-v1",
+  "id": "2026-11-18-wednesday-news-retry-1",
   "drafts": [
     {
       "schemaVersion": 2,
@@ -21,7 +21,7 @@
       "group": "life",
       "publicationGroup": "news",
       "provider": "cloud-agent",
-      "generatedAt": "2026-11-18T06:01:19+09:00",
+      "generatedAt": "2026-11-18T06:03:22+09:00",
       "topicKey": "news:unep-who:endocrine-disrupting-chemicals-report:2026-11-17",
       "coreConcept": "UNEP·WHO의 2026년 내분비계 교란물질 과학 평가가 정리한 노출 경로, 건강·환경 영향의 근거와 정책·검사의 한계",
       "keywords": [
@@ -42,7 +42,7 @@
         "facts": [
           "WHO 발행 페이지는 보고서 공개일을 2026년 11월 17일, 분량을 240쪽으로 표시한다.",
           "UNEP 공식 발표는 이번 보고서가 2012년 평가 이후 첫 주요 세계 업데이트라고 설명한다.",
-          "AP는 같은 날 보고서의 주요 결론과 함께 연구자·산업계의 반응, 규제 논쟁을 별도로 보도했다."
+          "Euronews는 11월 17일 AP 취재를 바탕으로 보고서의 주요 결론과 유럽 규제 상황, 전문가 견해를 별도로 보도했다."
         ],
         "keywords": [
           "State of the Science of Endocrine-Disrupting Chemicals 2026",
@@ -71,13 +71,13 @@
           "heading": "검사되지 않은 물질과 혼합 노출",
           "paragraphs": [
             "공식 발표에 따르면 전 세계에서 생산·사용 등록된 화학물질과 혼합물은 35만 종이 넘지만, 내분비계 교란 특성을 평가받은 것은 일부에 그친다. 현실에서는 사람과 생태계가 한 물질씩 고립되어 노출되기보다 여러 물질의 혼합에 노출되지만, 많은 규제 체계는 여전히 개별 물질을 중심으로 평가한다. 이 차이는 알려진 위험뿐 아니라 아직 충분히 시험하지 못한 영역을 관리하는 방식이 정책 과제가 된다는 뜻이다.[2]",
-            "AP는 보고서 내용과 함께 연구자와 화학 산업계의 입장도 전했다. 연구자들은 문제가 확인된 물질을 비슷한 구조의 충분히 시험하지 않은 대체물로 바꾸는 이른바 ‘두더지 잡기’식 대응을 경계했다. 산업계는 기존 법과 국제 협약 안에서 용도별 위험을 평가하는 체계가 효과적이라는 입장을 냈다. 독립 보도를 함께 보면 과학 평가가 곧 특정 규제안의 합의를 뜻하는 것은 아니며, 시험 기준과 대체물질 검증 방식을 둘러싼 논쟁이 이어지고 있음을 알 수 있다.[3]"
+            "Euronews는 AP 취재를 바탕으로 연구자와 규제 전문가의 견해를 함께 전했다. 연구자들은 문제가 확인된 물질을 비슷한 구조의 충분히 시험하지 않은 대체물로 바꾸는 이른바 ‘두더지 잡기’식 대응을 경계했다. 유럽연합에서는 관련 물질을 여러 법률과 분야별 규정으로 다루지만, 전문가들은 혼합 노출과 충분히 검증되지 않은 대체물질이 여전히 과제라고 지적했다. 독립 보도를 함께 보면 과학 평가가 곧 특정 규제안의 합의를 뜻하는 것은 아니며, 시험 기준과 대체물질 검증 방식을 둘러싼 논쟁이 이어지고 있음을 알 수 있다.[3]"
           ]
         },
         {
           "heading": "건강비용 수치는 어떻게 읽어야 하나",
           "paragraphs": [
-            "AP가 소개한 보고서 추정치는 내분비계 교란물질 노출과 관련된 세계 보건비용과 생산성 손실이 연간 1조1천억 달러를 넘는다는 것이다. 이 수치는 모든 화학물질 피해를 직접 집계한 회계값이 아니라, 이용 가능한 질환·노출 자료를 바탕으로 계산한 추정치다. 보고서는 오염된 식수, 생물다양성 손실과 식량 생산 영향 같은 비용은 포함하지 않아 보수적 추정이라고 설명하지만, 국가와 연구 설계에 따른 불확실성도 함께 고려해야 한다.[3]",
+            "Euronews 보도와 공식 보고서가 소개한 추정치는 내분비계 교란물질 노출과 관련된 세계 보건비용과 생산성 손실이 연간 1조1천억 달러를 넘는다는 것이다. 이 수치는 모든 화학물질 피해를 직접 집계한 회계값이 아니라, 이용 가능한 질환·노출 자료를 바탕으로 계산한 추정치다. 보고서는 오염된 식수, 생물다양성 손실과 식량 생산 영향 같은 비용은 포함하지 않아 보수적 추정이라고 설명하지만, 국가와 연구 설계에 따른 불확실성도 함께 고려해야 한다.[3]",
             "숫자의 크기만으로 개인이 모든 플라스틱이나 생활용품을 즉시 폐기해야 한다는 결론은 나오지 않는다. 제품군 안에서도 사용된 물질과 노출 가능성이 다르고, 잘못된 대체는 새 노출을 만들거나 의료·생활상의 다른 이익을 잃게 할 수 있다. 핵심은 위험을 개인의 불안과 구매 선택에만 맡기지 않고, 제조 단계의 성분 공개와 사전 시험, 시장 감시, 취약집단 보호를 함께 강화하자는 정책적 메시지다."
           ]
         },
@@ -95,7 +95,7 @@
           "url": "https://www.who.int/publications/m/item/9789240126879",
           "publisher": "World Health Organization",
           "type": "primary",
-          "verifiedAt": "2026-11-18T06:01:19+09:00",
+          "verifiedAt": "2026-11-18T06:03:22+09:00",
           "publishedAt": "2026-11-17"
         },
         {
@@ -103,15 +103,15 @@
           "url": "https://www.unep.org/en/news-and-stories/press-release/evidence-mounts-exposure-hormone-disrupting-chemicals-starts-birth",
           "publisher": "UN Environment Programme",
           "type": "primary",
-          "verifiedAt": "2026-11-18T06:01:19+09:00",
+          "verifiedAt": "2026-11-18T06:03:22+09:00",
           "publishedAt": "2026-11-17"
         },
         {
-          "title": "Latest science shows chemicals in many everyday items pose a growing threat, UN report says",
-          "url": "https://apnews.com/article/endocrine-disrupting-chemicals-plastics-health-7833c2bd2881fe7ec5793fefbde327ee",
-          "publisher": "Associated Press",
+          "title": "Hormone-disrupting chemicals pose growing health threat, UN warns",
+          "url": "https://www.euronews.com/2026/11/17/hormone-disrupting-chemicals-pose-growing-health-threat-un-warns",
+          "publisher": "Euronews",
           "type": "reference",
-          "verifiedAt": "2026-11-18T06:01:19+09:00",
+          "verifiedAt": "2026-11-18T06:03:22+09:00",
           "publishedAt": "2026-11-17"
         }
       ]
