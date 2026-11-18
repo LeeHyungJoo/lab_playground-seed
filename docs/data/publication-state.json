@@ -532,6 +532,54 @@
           ]
         }
       ]
+    },
+    "2026-11-19": {
+      "date": "2026-11-19",
+      "groups": {
+        "development": {
+          "attempts": [
+            {
+              "at": "2026-11-18T21:07:06.173Z",
+              "status": "published",
+              "code": "published",
+              "message": "검증 후 저장했습니다.",
+              "bundleId": "2026-11-19-thursday-development-v1"
+            }
+          ],
+          "status": "published",
+          "articleId": "2026-11-19-development-perplexityai-bumblebee",
+          "publishedAt": "2026-11-19T06:00:00+09:00",
+          "code": "published",
+          "message": "검증 후 저장했습니다.",
+          "fingerprint": "57689dd818240f6cf2575ecac3260c9b9c1e91621772ea61c1bbbd416132e357",
+          "lastAttemptAt": "2026-11-18T21:07:06.173Z"
+        }
+      },
+      "policyVersion": "2026-11-14.1",
+      "updatedAt": "2026-11-18T21:07:06.173Z",
+      "runs": [
+        {
+          "at": "2026-11-18T21:07:06.173Z",
+          "bundleId": "2026-11-19-thursday-development-v1",
+          "results": [
+            {
+              "group": "development",
+              "status": "published",
+              "code": "published"
+            },
+            {
+              "group": "news",
+              "status": "skipped",
+              "code": "not-scheduled"
+            },
+            {
+              "group": "culture",
+              "status": "skipped",
+              "code": "not-scheduled"
+            }
+          ]
+        }
+      ]
     }
   }
 }
