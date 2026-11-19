@@ -580,6 +580,72 @@
           ]
         }
       ]
+    },
+    "2026-11-20": {
+      "date": "2026-11-20",
+      "groups": {
+        "news": {
+          "attempts": [
+            {
+              "at": "2026-11-19T21:03:29.294Z",
+              "status": "published",
+              "code": "published",
+              "message": "검증 후 저장했습니다.",
+              "bundleId": "2026-11-20-friday-news-health-v1"
+            }
+          ],
+          "status": "published",
+          "articleId": "2026-11-20-news-voyager-one-light-day",
+          "publishedAt": "2026-11-20T06:00:00+09:00",
+          "code": "published",
+          "message": "검증 후 저장했습니다.",
+          "fingerprint": "ca074feb5de2fb82447928f774219b15b85371fd31f1a96367ad272e657ef31f",
+          "lastAttemptAt": "2026-11-19T21:03:29.294Z"
+        },
+        "culture": {
+          "attempts": [
+            {
+              "at": "2026-11-19T21:03:29.294Z",
+              "status": "published",
+              "code": "published",
+              "message": "검증 후 저장했습니다.",
+              "bundleId": "2026-11-20-friday-news-health-v1"
+            }
+          ],
+          "status": "published",
+          "articleId": "2026-11-20-culture-sleep-duration-regularity",
+          "publishedAt": "2026-11-20T06:00:00+09:00",
+          "code": "published",
+          "message": "검증 후 저장했습니다.",
+          "fingerprint": "ca074feb5de2fb82447928f774219b15b85371fd31f1a96367ad272e657ef31f",
+          "lastAttemptAt": "2026-11-19T21:03:29.294Z"
+        }
+      },
+      "policyVersion": "2026-11-14.1",
+      "updatedAt": "2026-11-19T21:03:29.294Z",
+      "runs": [
+        {
+          "at": "2026-11-19T21:03:29.294Z",
+          "bundleId": "2026-11-20-friday-news-health-v1",
+          "results": [
+            {
+              "group": "development",
+              "status": "skipped",
+              "code": "not-scheduled"
+            },
+            {
+              "group": "news",
+              "status": "published",
+              "code": "published"
+            },
+            {
+              "group": "culture",
+              "status": "published",
+              "code": "published"
+            }
+          ]
+        }
+      ]
     }
   }
 }
